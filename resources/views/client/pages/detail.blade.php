@@ -169,12 +169,24 @@
                     <div class="mini-widget carrier-widget m30">
                         @foreach ($newsLatest as $newsItem)
                             <div class="post clearfix">
-                                <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-                                    <img alt="" src='{{asset("upload/og_images/$newsItem->image")}}' class="image-sidebar img-responsive">
-                                </a>
-                                <h3 class="title-sidebar">
-                                    <a style="line-height: 25px" href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">{{$newsItem->title}}</a>
-                                </h3>
+                                <div class="mini-widget-thumb">
+                                    <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
+                                        <img alt="" src='{{asset("upload/thumbnails/$newsItem->image")}}' class="img-responsive">
+                                    </a>
+                                </div>
+                                <div class="mini-widget-title">
+                                    <h3 class="title-sidebar-right">
+                                        <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">{{$newsItem->title}}</a>
+                                    </h3>
+                                    <p class="meta-sidebar">
+                                        <span>Lượt xem: {{number_format($newsItem->view)}}</span>
+                                        <span>|</span>
+                                        <span>{{date('d/m/Y', strtotime($newsItem->date))}}</span>
+                                    </p>
+                                    <p class="meta-category">
+                                        Chuyên mục: <b>{{$newsItem->category->name}}</b>
+                                    </p>
+                                </div>
                             </div>
                         @endforeach
                     </div>

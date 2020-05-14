@@ -24,8 +24,10 @@ class SiteService
 									 ->get();
 		$categoryRandom = $this->categoryModel->all()->random(4);
 		$bewsView = $this->newsModel->latest('view')->limit(15)->get();
+		$newsHot = $this->newsModel->all()->random(15);
 		$data = [
 			'news' => $news,
+			'newsHot' => $newsHot,
 			'newsLatest' => $newsLatest,
 			'categoryRandom' => $categoryRandom,
 			'bewsView' => $bewsView,

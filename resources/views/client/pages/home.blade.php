@@ -70,7 +70,7 @@
                         </div>
 
                         <div class="mini-widget carrier-widget m30">
-                            @foreach ($bewsView as $newsItem)
+                            @foreach ($newsHot as $newsItem)
                                 <div class="post clearfix">
                                     <div class="mini-widget-title" style="padding-left: 0px; padding-right: 15px">
                                         <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}"> {{$newsItem->title}}</a>
