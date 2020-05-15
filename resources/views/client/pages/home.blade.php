@@ -47,7 +47,7 @@
                         </div>
 
                         <div class="mini-widget carrier-widget m30">
-                            @foreach ($bewsView as $newsItem)
+                            @foreach ($bestView as $newsItem)
                                 <div class="post clearfix">
                                     <div class="mini-widget-thumb">
                                         <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">

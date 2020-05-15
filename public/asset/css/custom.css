@@ -1,13 +1,3 @@
-/**********************************
-    File Name: custom.css
-    Template Name: TechMag
-    Created By: Template Visual Team
-    Website: http://templatevisual.com
-    Version: 1.0
-    Support: support@templatevisual.com
-
-/**********************************/
-
 .navbar-default,
 .label-primary,
 .reviewbox h3,
@@ -247,4 +237,10 @@ a:hover{
 }
 .large-post-meta a {
     color: #616161;
+}
+.video-detail video{
+    width: auto;
+}
+.video-detail{
+    text-align: center;
 }

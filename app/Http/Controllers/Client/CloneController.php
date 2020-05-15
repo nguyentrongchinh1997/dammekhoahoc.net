@@ -10,50 +10,79 @@ class CloneController extends Controller
 {
 	public function __construct()
 	{
-		// $this->congNghe = 1;
-		// $this->doiSong = 2;
+		$this->congNghe = 1;
+		$this->doiSong = 2;
 		$this->khamPha = 3;
-		// $this->khoaHoc = 4;
-		// $this->biAn = 5;
-		// $this->yHoc = 6;
+		$this->khoaHoc = 4;
+		$this->biAn = 5;
+		$this->yHoc = 6;
 		$this->congNgheMoi = 7;
 		$this->phanMem = 8;
 		$this->khoaHocMayTinh = 9;
 		$this->phatMinh = 10;
 		$this->Ai = 11;
-		// $this->sinhVatHoc = 12;
-		// $this->khaoCoHoc = 13;
-		// $this->daiDuongHoc = 14;
-		// $this->theGioiDongVat = 15;
-		// $this->danhNhanTheGioi = 16;
-		// $this->ngayTanThe = 17;
-		// $this->chinhPhucNgoiSao = 18;
-		// $this->kyQuanTheGioi = 19;
-		// $this->nguoiNgoaiHanhTinh = 20;
-		// $this->tracNghiemKhoaHoc = 21;
-		// $this->lichSu = 22;
-		// $this->khoHocQuanSu = 23;
-		// $this->benh = 24;
-		// $this->moiTruong = 25;
-		// $this->benhUngThu = 26;
-		// $this->ungDungKhoaHoc = 27;
-		// $this->khoaHocVaBanDoc = 28;
-		// $this->congTrinhKhoaHoc = 29;
-		// $this->cauChuyenKhoaHoc = 30;
-		// $this->suKienKhoaHoc = 31;
-		// $this->thuVienAnh = 32;
-		// $this->gocHaiHuoc = 33;
-		// $this->video = 34;
+		$this->sinhVatHoc = 12;
+		$this->khaoCoHoc = 13;
+		$this->daiDuongHoc = 14;
+		$this->theGioiDongVat = 15;
+		$this->danhNhanTheGioi = 16;
+		$this->ngayTanThe = 17;
+		$this->chinhPhucNgoiSao = 18;
+		$this->kyQuanTheGioi = 19;
+		$this->nguoiNgoaiHanhTinh = 20;
+		$this->tracNghiemKhoaHoc = 21;
+		$this->lichSu = 22;
+		$this->khoaHocQuanSu = 23;
+		$this->benh = 24;
+		$this->moiTruong = 25;
+		$this->benhUngThu = 26;
+		$this->ungDungKhoaHoc = 27;
+		$this->khoaHocVaBanDoc = 28;
+		$this->congTrinhKhoaHoc = 29;
+		$this->cauChuyenKhoaHoc = 30;
+		$this->suKienKhoaHoc = 31;
+		$this->thuVienAnh = 32;
+		$this->gocHaiHuoc = 33;
+		$this->video = 34;
 	}
 
     public function clone()
     {
-    	// $this->cloneCongNghe('https://khoahoc.tv/cong-nghe-moi', $this->congNgheMoi);
-    	// $this->cloneCongNghe('https://khoahoc.tv/phan-mem', $this->phanMem);
-    	// $this->cloneCongNghe('https://khoahoc.tv/may-tinh', $this->khoaHocMayTinh);
+    	$this->cloneCongNghe('https://khoahoc.tv/khoa-hoc-quan-su', $this->khoaHocQuanSu);
+    	$this->cloneCongNghe('https://khoahoc.tv/lich-su', $this->lichSu);
+    	$this->cloneCongNghe('https://khoahoc.tv/trac-nghiem-khoa-hoc', $this->tracNghiemKhoaHoc);
+    	$this->cloneCongNghe('https://khoahoc.tv/nguoi-ngoai-hanh-tinh', $this->nguoiNgoaiHanhTinh);
+    	$this->cloneCongNghe('https://khoahoc.tv/di-san-the-gioi', $this->kyQuanTheGioi);
+    	$this->cloneCongNghe('https://khoahoc.tv/chinh-phuc-sao-hoa', $this->chinhPhucNgoiSao);
+    	$this->cloneCongNghe('https://khoahoc.tv/ngay-tan-the', $this->ngayTanThe);
+    	$this->cloneCongNghe('https://khoahoc.tv/danh-nhan-the-gioi', $this->danhNhanTheGioi);
+    	$this->cloneCongNghe('https://khoahoc.tv/the-gioi-dong-vat', $this->theGioiDongVat);
+    	$this->cloneCongNghe('https://khoahoc.tv/dai-duong-hoc', $this->daiDuongHoc);
+    	$this->cloneCongNghe('https://khoahoc.tv/khao-co-hoc', $this->khaoCoHoc);
+    	$this->cloneCongNghe('https://khoahoc.tv/sinh-vat-hoc', $this->sinhVatHoc);
+    	$this->cloneCongNghe('https://khoahoc.tv/ai-tri-tue-nhan-tao', $this->Ai);
     	$this->cloneCongNghe('https://khoahoc.tv/phat-minh', $this->phatMinh);
-    	//$this->cloneCongNghe('https://khoahoc.tv/ai-tri-tue-nhan-tao', $this->Ai);
-    	// $this->cloneCongNghe('https://khoahoc.tv/kham-pha-khoa-hoc', $this->khamPha);
+    	$this->cloneCongNghe('https://khoahoc.tv/may-tinh', $this->khoaHocMayTinh);
+    	$this->cloneCongNghe('https://khoahoc.tv/phan-mem', $this->phanMem);
+    	$this->cloneCongNghe('https://khoahoc.tv/cong-nghe-moi', $this->congNgheMoi);
+    	$this->cloneCongNghe('https://khoahoc.tv/yhoc', $this->yHoc);
+    	$this->cloneCongNghe('https://khoahoc.tv/1001-bi-an', $this->biAn);
+    	$this->cloneCongNghe('https://khoahoc.tv/vu-tru', $this->khoaHoc);
+    	$this->cloneCongNghe('https://khoahoc.tv/kham-pha-khoa-hoc', $this->khamPha);
+    	$this->cloneCongNghe('https://khoahoc.tv/doi-song', $this->doiSong);
+    	$this->cloneCongNghe('https://khoahoc.tv/cong-nghe', $this->congNghe);
+    	
+    	$this->cloneCongNghe('https://khoahoc.tv/benh-va-cach-chua', $this->benh);
+    	$this->cloneCongNghe('https://khoahoc.tv/moi-truong', $this->moiTruong);
+    	$this->cloneCongNghe('https://khoahoc.tv/benh-ung-thu', $this->benhUngThu);
+    	$this->cloneCongNghe('https://khoahoc.tv/ung-dung', $this->ungDungKhoaHoc);
+    	$this->cloneCongNghe('https://khoahoc.tv/ban-doc-khoa-hoc', $this->khoaHocVaBanDoc);
+    	$this->cloneCongNghe('https://khoahoc.tv/cong-trinh', $this->congTrinhKhoaHoc);
+    	$this->cloneCongNghe('https://khoahoc.tv/cau-chuyen', $this->cauChuyenKhoaHoc);
+    	$this->cloneCongNghe('https://khoahoc.tv/su-kien-khoa-hoc', $this->suKienKhoaHoc);
+    	$this->cloneCongNghe('https://khoahoc.tv/thu-vien-anh', $this->thuVienAnh);
+        $this->cloneCongNghe('https://khoahoc.tv/hai-huoc', $this->gocHaiHuoc);
+    	$this->cloneCongNghe('https://khoahoc.tv/video', $this->video);
     }
 
     public function cloneCongNghe($link, $categoryId)
@@ -63,11 +92,11 @@ class CloneController extends Controller
 
     	foreach ($html->find('.listview .listitem') as $link)
     	{
-    		$linkFull[] = $domain . $link->find('a', 0)->href;
+    		$linkFull = $domain . $link->find('a', 0)->href;
     		$thumbnail = $link->find('.thumb img', 0)->src;
-    		//$this->getData($linkFull, $thumbnail, $categoryId);
+    		$this->getData($linkFull, $thumbnail, $categoryId);
     	}
-    	dd($linkFull);
+    	//dd($linkFull);
     }
 
     public function getData($link, $thumbnail, $categoryId)
@@ -104,38 +133,70 @@ class CloneController extends Controller
     					$og_image = $thumbnail;
     				}
 
-    				foreach ($html->find('.content-detail p img') as $thumb) {
-						try {
-	    					$rand = rand();
-		    				$path = "upload/images/$folder/$nameImage-$rand.jpg";
-		    				$thumbItem = html_entity_decode($thumb->outertext);
+    				if (!empty($html->find('.content-detail p[style="text-align: center;"]'))) {
+    					foreach ($html->find('.content-detail p[style="text-align: center;"]') as $thumb) {
+	    					if (!empty($thumb->find('img'))) {
+	    						try {
+	    							$alt = $thumb->find('img', 0)->alt;
+	    							$img = $thumb->find('img', 0)->src;
+	    							$rand = rand();
+				    				$path = "upload/images/$folder/$nameImage-$rand.jpg";
+				    				$thumbItem = html_entity_decode($thumb->outertext);
 
-		    				if ($thumb->alt != '') {
-								$noteImage = '<span class="note-image">' . $thumb->alt . '</span>';
-							} else {
-								$noteImage = '';
-							}
+				    				if ($alt != '') {
+										$noteImage = '<p class="note-image">' . $alt . '</p>';
+									} else {
+										$noteImage = '';
+									}
 
-							if ($thumb->src != '') {
-								$img = $thumb->src;
-								$imgTag = "<span class='image-detail'><img src=$path alt='$nameImage' title='$title' alt='$noteImage'></span>";
-								$imgSoure = "<span class='image-detail'><img src=$img alt='$nameImage' title='$title' alt='$noteImage'></span>";
-							} else {
-								$img = '';
-								$imgTag = '';
-								$imgSoure = '';
-							}
-		    			} catch (\Exception $e) {
-		    				$imgTag = '';
-							$noteImage = '';
-							$imgSoure = '';
-		    			}
-		    			$listRand[$rand] = $rand;
-						$listImgAndContent[$rand] = $imgTag . $noteImage;
-						$listImgSoure[$rand] = $imgSoure . $noteImage;
-						$listImage[$rand] = $img;
-						$content = str_replace($thumbItem, '<p>' . $rand . '</p>', $content);
-					}
+									if ($img != '') {
+										$imgTag = "<p class='image-detail'><img src=$path alt='$alt' title='$title' alt='$noteImage'></p>";
+										$imgSoure = "<p class='image-detail'><img src=$img alt='$nameImage' title='$title' alt='$noteImage'></p>";
+									} else {
+										$img = '';
+										$imgTag = '';
+										$imgSoure = '';
+									}
+	    						} catch (\Exception $e) {
+	    							$imgTag = '';
+									$noteImage = '';
+									$imgSoure = '';
+	    						}
+	    						$listRand[$rand] = $rand;
+								$listImgAndContent[$rand] = $imgTag . $noteImage;
+								$listImgSoure[$rand] = $imgSoure . $noteImage;
+								$listImage[$rand] = $img;
+								$content = str_replace($thumbItem, '<p>' . $rand . '</p>', $content);
+	    					}
+	    					
+	    					if (!empty($thumb->find('video'))) {
+	    						try {
+	    							$rand = rand();
+				    				$thumbItem = html_entity_decode($thumb->innertext);
+	    						} catch (\Exception $e) {
+	    							$imgTag = '';
+									$imgSoure = '';
+	    						}
+	    						$listRand[$rand] = $rand;
+								$listImgAndContent[$rand] = '<p class="video-detail">' . $thumbItem . '</p>';
+								$listImgSoure[$rand] = '<p class="video-detail">' . $thumbItem . '</p>';
+								$content = str_replace($thumbItem, '<p class="video-detail">' . $rand . '</p>', $content);
+	    					}
+	    					if (!empty($thumb->find('iframe'))) {
+	    						try {
+	    							$rand = rand();
+				    				$thumbItem = html_entity_decode($thumb->innertext);
+	    						} catch (\Exception $e) {
+	    							$imgTag = '';
+									$imgSoure = '';
+	    						}
+	    						$listRand[$rand] = $rand;
+								$listImgAndContent[$rand] = '<p class="video-detail">' . $thumbItem . '</p>';
+								$listImgSoure[$rand] = '<p class="video-detail">' . $thumbItem . '</p>';
+								$content = str_replace($thumbItem, '<p class="video-detail">' . $rand . '</p>', $content);
+	    					}	    	
+						}
+    				}
 					$content = str_replace('<br>', '', $content);
 					$content = str_replace($summury, '', $content);
 					$htmlTagExeption = array('article', 'figure', 'html', 'head', 'meta', 'body', 'strong', 'em', 'a', 'span', 'i', 'div', 'font', 'b', 'table', 'tr', 'td', 'tbody', 'ul', 'script', 'ins', 'u', 'br', 'sub', 'iframe');
@@ -152,14 +213,14 @@ class CloneController extends Controller
 							echo $alert . ' <b>khoahoc.tv</b><hr>';
 						} else {
 							$this->deletePost($result->id);
-							echo 'Ảnh lỗi nên không thêm tin này';
+							echo 'Ảnh lỗi nên không thêm tin này:' . $link . '<hr>';
 						}
 					} else {
-						echo "Thêm thất bại<hr>";
+						echo "Thêm thất bại: $link<hr>";
 					}
     			}
     		} else {
-    			echo "Tin này đã thêm<hr>";
+    			echo "Tin này đã thêm: $link<hr>";
     		}
     	} catch (\Exception $e) {
     		echo 'Lỗi dòng link: ' . $link . '<br>';

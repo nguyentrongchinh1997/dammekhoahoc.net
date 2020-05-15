@@ -23,14 +23,14 @@ class SiteService
 									 ->limit(8)
 									 ->get();
 		$categoryRandom = $this->categoryModel->all()->random(4);
-		$bewsView = $this->newsModel->latest('view')->limit(15)->get();
+		$bestView = $this->newsModel->latest('view')->limit(15)->get();
 		$newsHot = $this->newsModel->all()->random(15);
 		$data = [
 			'news' => $news,
 			'newsHot' => $newsHot,
 			'newsLatest' => $newsLatest,
 			'categoryRandom' => $categoryRandom,
-			'bewsView' => $bewsView,
+			'bestView' => $bestView,
 		];
 
 		return $data;
@@ -40,13 +40,17 @@ class SiteService
 	{
 		try {
 			$cate = $this->categoryModel->where('slug', $slug)->first();
-			$bewsView = $this->newsModel->latest('view')->where('category_id', $cate->id)->limit(15)->get();
-			$newsList = $this->newsModel->where('category_id', $cate->id)->paginate(20);
+			$newsList = $this->newsModel->where('category_id', $cate->id)->latest('date')->paginate(20);
+			$idList = $this->newsModel->where('category_id', $cate->id)->latest('date')->select('id')->paginate(20);
+			$bestView = $this->newsModel->latest('view')
+										->whereNotIn('id', $idList)
+										->where('category_id', $cate->id)
+										->get();
 			$data = [
 				'category' => $cate, 
 				'newsList' => $newsList,
 				'cate' => $cate,
-				'bewsView' => $bewsView,
+				'bestView' => $bestView,
 			];
 
 			return $data;
