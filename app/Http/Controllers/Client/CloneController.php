@@ -44,45 +44,46 @@ class CloneController extends Controller
 		$this->thuVienAnh = 32;
 		$this->gocHaiHuoc = 33;
 		$this->video = 34;
+		$this->server = 'https://dataserverr.s3-ap-southeast-1.amazonaws.com/';
 	}
 
-    public function clone()
+    public function clone(Request $request)
     {
     	$this->cloneCongNghe('https://khoahoc.tv/khoa-hoc-quan-su', $this->khoaHocQuanSu);
-    	$this->cloneCongNghe('https://khoahoc.tv/lich-su', $this->lichSu);
-    	$this->cloneCongNghe('https://khoahoc.tv/trac-nghiem-khoa-hoc', $this->tracNghiemKhoaHoc);
-    	$this->cloneCongNghe('https://khoahoc.tv/nguoi-ngoai-hanh-tinh', $this->nguoiNgoaiHanhTinh);
-    	$this->cloneCongNghe('https://khoahoc.tv/di-san-the-gioi', $this->kyQuanTheGioi);
-    	$this->cloneCongNghe('https://khoahoc.tv/chinh-phuc-sao-hoa', $this->chinhPhucNgoiSao);
-    	$this->cloneCongNghe('https://khoahoc.tv/ngay-tan-the', $this->ngayTanThe);
-    	$this->cloneCongNghe('https://khoahoc.tv/danh-nhan-the-gioi', $this->danhNhanTheGioi);
-    	$this->cloneCongNghe('https://khoahoc.tv/the-gioi-dong-vat', $this->theGioiDongVat);
-    	$this->cloneCongNghe('https://khoahoc.tv/dai-duong-hoc', $this->daiDuongHoc);
-    	$this->cloneCongNghe('https://khoahoc.tv/khao-co-hoc', $this->khaoCoHoc);
-    	$this->cloneCongNghe('https://khoahoc.tv/sinh-vat-hoc', $this->sinhVatHoc);
-    	$this->cloneCongNghe('https://khoahoc.tv/ai-tri-tue-nhan-tao', $this->Ai);
-    	$this->cloneCongNghe('https://khoahoc.tv/phat-minh', $this->phatMinh);
-    	$this->cloneCongNghe('https://khoahoc.tv/may-tinh', $this->khoaHocMayTinh);
-    	$this->cloneCongNghe('https://khoahoc.tv/phan-mem', $this->phanMem);
-    	$this->cloneCongNghe('https://khoahoc.tv/cong-nghe-moi', $this->congNgheMoi);
-    	$this->cloneCongNghe('https://khoahoc.tv/yhoc', $this->yHoc);
-    	$this->cloneCongNghe('https://khoahoc.tv/1001-bi-an', $this->biAn);
-    	$this->cloneCongNghe('https://khoahoc.tv/vu-tru', $this->khoaHoc);
-    	$this->cloneCongNghe('https://khoahoc.tv/kham-pha-khoa-hoc', $this->khamPha);
-    	$this->cloneCongNghe('https://khoahoc.tv/doi-song', $this->doiSong);
-    	$this->cloneCongNghe('https://khoahoc.tv/cong-nghe', $this->congNghe);
+    	// $this->cloneCongNghe('https://khoahoc.tv/lich-su', $this->lichSu);
+    	// $this->cloneCongNghe('https://khoahoc.tv/trac-nghiem-khoa-hoc', $this->tracNghiemKhoaHoc);
+    	// $this->cloneCongNghe('https://khoahoc.tv/nguoi-ngoai-hanh-tinh', $this->nguoiNgoaiHanhTinh);
+    	// $this->cloneCongNghe('https://khoahoc.tv/di-san-the-gioi', $this->kyQuanTheGioi);
+    	// $this->cloneCongNghe('https://khoahoc.tv/chinh-phuc-sao-hoa', $this->chinhPhucNgoiSao);
+    	// $this->cloneCongNghe('https://khoahoc.tv/ngay-tan-the', $this->ngayTanThe);
+    	// $this->cloneCongNghe('https://khoahoc.tv/danh-nhan-the-gioi', $this->danhNhanTheGioi);
+    	// $this->cloneCongNghe('https://khoahoc.tv/the-gioi-dong-vat', $this->theGioiDongVat);
+    	// $this->cloneCongNghe('https://khoahoc.tv/dai-duong-hoc', $this->daiDuongHoc);
+    	// $this->cloneCongNghe('https://khoahoc.tv/khao-co-hoc', $this->khaoCoHoc);
+    	// $this->cloneCongNghe('https://khoahoc.tv/sinh-vat-hoc', $this->sinhVatHoc);
+    	// $this->cloneCongNghe('https://khoahoc.tv/ai-tri-tue-nhan-tao', $this->Ai);
+    	// $this->cloneCongNghe('https://khoahoc.tv/phat-minh', $this->phatMinh);
+    	// $this->cloneCongNghe('https://khoahoc.tv/may-tinh', $this->khoaHocMayTinh);
+    	// $this->cloneCongNghe('https://khoahoc.tv/phan-mem', $this->phanMem);
+    	// $this->cloneCongNghe('https://khoahoc.tv/cong-nghe-moi', $this->congNgheMoi);
+    	// $this->cloneCongNghe('https://khoahoc.tv/yhoc', $this->yHoc);
+    	// $this->cloneCongNghe('https://khoahoc.tv/1001-bi-an', $this->biAn);
+    	// $this->cloneCongNghe('https://khoahoc.tv/vu-tru', $this->khoaHoc);
+    	// $this->cloneCongNghe('https://khoahoc.tv/kham-pha-khoa-hoc', $this->khamPha);
+    	// $this->cloneCongNghe('https://khoahoc.tv/doi-song', $this->doiSong);
+    	// $this->cloneCongNghe('https://khoahoc.tv/cong-nghe', $this->congNghe);
     	
-    	$this->cloneCongNghe('https://khoahoc.tv/benh-va-cach-chua', $this->benh);
-    	$this->cloneCongNghe('https://khoahoc.tv/moi-truong', $this->moiTruong);
-    	$this->cloneCongNghe('https://khoahoc.tv/benh-ung-thu', $this->benhUngThu);
-    	$this->cloneCongNghe('https://khoahoc.tv/ung-dung', $this->ungDungKhoaHoc);
-    	$this->cloneCongNghe('https://khoahoc.tv/ban-doc-khoa-hoc', $this->khoaHocVaBanDoc);
-    	$this->cloneCongNghe('https://khoahoc.tv/cong-trinh', $this->congTrinhKhoaHoc);
-    	$this->cloneCongNghe('https://khoahoc.tv/cau-chuyen', $this->cauChuyenKhoaHoc);
-    	$this->cloneCongNghe('https://khoahoc.tv/su-kien-khoa-hoc', $this->suKienKhoaHoc);
-    	$this->cloneCongNghe('https://khoahoc.tv/thu-vien-anh', $this->thuVienAnh);
-        $this->cloneCongNghe('https://khoahoc.tv/hai-huoc', $this->gocHaiHuoc);
-    	$this->cloneCongNghe('https://khoahoc.tv/video', $this->video);
+    	// $this->cloneCongNghe('https://khoahoc.tv/benh-va-cach-chua', $this->benh);
+    	// $this->cloneCongNghe('https://khoahoc.tv/moi-truong', $this->moiTruong);
+    	// $this->cloneCongNghe('https://khoahoc.tv/benh-ung-thu', $this->benhUngThu);
+    	// $this->cloneCongNghe('https://khoahoc.tv/ung-dung', $this->ungDungKhoaHoc);
+    	// $this->cloneCongNghe('https://khoahoc.tv/ban-doc-khoa-hoc', $this->khoaHocVaBanDoc);
+    	// $this->cloneCongNghe('https://khoahoc.tv/cong-trinh', $this->congTrinhKhoaHoc);
+    	// $this->cloneCongNghe('https://khoahoc.tv/cau-chuyen', $this->cauChuyenKhoaHoc);
+    	// $this->cloneCongNghe('https://khoahoc.tv/su-kien-khoa-hoc', $this->suKienKhoaHoc);
+    	// $this->cloneCongNghe('https://khoahoc.tv/thu-vien-anh', $this->thuVienAnh);
+     //    $this->cloneCongNghe('https://khoahoc.tv/hai-huoc', $this->gocHaiHuoc);
+    	// $this->cloneCongNghe('https://khoahoc.tv/video', $this->video);
     }
 
     public function cloneCongNghe($link, $categoryId)
@@ -95,6 +96,7 @@ class CloneController extends Controller
     		$linkFull = $domain . $link->find('a', 0)->href;
     		$thumbnail = $link->find('.thumb img', 0)->src;
     		$this->getData($linkFull, $thumbnail, $categoryId);
+    		break;
     	}
     	//dd($linkFull);
     }
@@ -118,7 +120,7 @@ class CloneController extends Controller
     				$author = 'diembao24h.net';
     			}
     			$folder = date('Y-m', strtotime($date));
-    			$this->createFolder($folder);
+    			//$this->createFolder($folder);
 
     			if (!empty($html->find('#main .content'))) {
     				$title = trim(html_entity_decode($html->find('.content h1', 0)->plaintext));
@@ -140,7 +142,7 @@ class CloneController extends Controller
 	    							$alt = $thumb->find('img', 0)->alt;
 	    							$img = $thumb->find('img', 0)->src;
 	    							$rand = rand();
-				    				$path = "upload/images/$folder/$nameImage-$rand.jpg";
+				    				$path = $this->server . "photos/images/$folder/$nameImage-$rand.jpg";
 				    				$thumbItem = html_entity_decode($thumb->outertext);
 
 				    				if ($alt != '') {
@@ -321,17 +323,24 @@ class CloneController extends Controller
     		if (count($listImage) > 0) {
 				foreach ($listImage as $key => $img) {
 					if ($img != '') {
-						$put_img = file_get_contents($img, false, stream_context_create($arrContextOptions));
-						file_put_contents(public_path("upload/images/$folder/" . $nameImage . '-' . $listRand[$key] . '.jpg'), $put_img);
+						$fullpath = 'photos/images/' . $folder . '/' . $nameImage . '-' . $listRand[$key] . '.jpg';
+						\Storage::disk('s3')->put($fullpath, file_get_contents($img, false, stream_context_create($arrContextOptions)), 'public');
+						// $put_img = file_get_contents($img, false, stream_context_create($arrContextOptions));
+						// file_put_contents(public_path("upload/images/$folder/" . $nameImage . '-' . $listRand[$key] . '.jpg'), $put_img);
 					}
 				}
 			}
+			$fillPathThumb = 'photos/thumbnails/' . $nameImage . '.jpg';
+			\Storage::disk('s3')->put($fillPathThumb, file_get_contents($thumbnail, false, stream_context_create($arrContextOptions)), 'public');
 
-			$put_thumbnail = file_get_contents($thumbnail, false, stream_context_create($arrContextOptions));
-			file_put_contents(public_path("upload/thumbnails/" . $nameImage . '.jpg'), $put_thumbnail);
+			// $put_thumbnail = file_get_contents($thumbnail, false, stream_context_create($arrContextOptions));
+			// file_put_contents(public_path("upload/thumbnails/" . $nameImage . '.jpg'), $put_thumbnail);
 
-			$put_og_image = file_get_contents($og_image, false, stream_context_create($arrContextOptions));
-			file_put_contents(public_path("upload/og_images/" . $nameImage . '.jpg'), $put_og_image);
+			$filePathOgImage = 'photos/og_images/' . $nameImage . '.jpg';
+			\Storage::disk('s3')->put($filePathOgImage, file_get_contents($og_image, false, stream_context_create($arrContextOptions)), 'public');
+
+			// $put_og_image = file_get_contents($og_image, false, stream_context_create($arrContextOptions));
+			// file_put_contents(public_path("upload/og_images/" . $nameImage . '.jpg'), $put_og_image);
 
 			return 'Thêm tin thành công';
     	} catch (\Exception $e) {
@@ -344,12 +353,19 @@ class CloneController extends Controller
 		$post = News::findOrFail($newsId);
 		$image = $post->image;
 
-		if (file_exists(public_path('upload/thumbnails/' . $image))) {
-			unlink(public_path('upload/thumbnails/' . $image));
-		}
-		if (file_exists(public_path('upload/og_images/' . $image))) {
-			unlink(public_path('upload/og_images/' . $image));
-		}
+		if (Storage::disk('s3')->exists($this->server . 'photos/thumbnails/' . $image)) {
+	        Storage::disk('s3')->delete($this->server . 'photos/thumbnails/' . $image);
+	    }
+
+	    if (Storage::disk('s3')->exists($this->server . 'photos/og_images/' . $image)) {
+	        Storage::disk('s3')->delete($this->server . 'photos/og_images/' . $image);
+	    }
+		// if (file_exists(public_path('upload/thumbnails/' . $image))) {
+		// 	unlink(public_path('upload/thumbnails/' . $image));
+		// }
+		// if (file_exists(public_path('upload/og_images/' . $image))) {
+		// 	unlink(public_path('upload/og_images/' . $image));
+		// }
 		$link = route('detail', [
 											'slug' => $post->slug, 
 											'sub' => $post->id
@@ -360,9 +376,12 @@ class CloneController extends Controller
 			foreach ($html->find('.body-content .image-detail img') as $image) {
 				$img = $image->src;
 
-				if (file_exists(public_path($img))) {
-					unlink(public_path($img));
-				}
+				// if (file_exists(public_path($img))) {
+				// 	unlink(public_path($img));
+				// }
+				if (Storage::disk('s3')->exists($img)) {
+			        Storage::disk('s3')->delete($img);
+			    }
 			}
 		}
 	}
