@@ -96,9 +96,7 @@ class CloneController extends Controller
     		$linkFull = $domain . $link->find('a', 0)->href;
     		$thumbnail = $link->find('.thumb img', 0)->src;
     		$this->getData($linkFull, $thumbnail, $categoryId);
-    		break;
     	}
-    	//dd($linkFull);
     }
 
     public function getData($link, $thumbnail, $categoryId)

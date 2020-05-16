@@ -5,7 +5,7 @@
 @section('seo')
 <meta name="description" content="{{strip_tags($news->summury)}}"/>
 <meta name="keywords" content="{{strip_tags($news->keyword)}}"/>
-<meta content='{{asset("upload/og_images/$news->image")}}' property="og:image"/>
+<meta content='{{asset("$server/og_images/$news->image")}}' property="og:image"/>
 @endsection
 
 @section('content')
@@ -80,7 +80,7 @@
 	                                        <div class="post-review col-md-4 col-sm-12 col-xs-12">
 	                                            <div class="post-media entry">
 	                                            	<a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-	                                            		<img src='{{asset("upload/thumbnails/$newsItem->image")}}' alt="{{$newsItem->title}}" class="news-latest-image img-responsive">
+	                                            		<img src='{{asset("$server/thumbnails/$newsItem->image")}}' alt="{{$newsItem->title}}" class="news-latest-image img-responsive">
 	                                            	</a>
 	                                                
 	                                            </div>
@@ -103,7 +103,7 @@
                                         		<div class="post-review col-md-4 col-sm-12 col-xs-12">
 		                                            <div class="post-media entry">
 		                                            	<a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-		                                            		<img src='{{asset("upload/thumbnails/$newsItem->image")}}' alt="{{$newsItem->title}}" class="news-latest-image img-responsive">
+		                                            		<img src='{{asset("$server/thumbnails/$newsItem->image")}}' alt="{{$newsItem->title}}" class="news-latest-image img-responsive">
 		                                            	</a>
 		                                                
 		                                            </div>
@@ -135,7 +135,7 @@
 	                                        <div class="post-review col-md-4 col-sm-12 col-xs-12">
 	                                            <div class="post-media entry">
 	                                            	<a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-	                                            		<img src='{{asset("upload/thumbnails/$newsItem->image")}}' alt="" class="news-latest-image img-responsive">
+	                                            		<img src='{{asset("$server/thumbnails/$newsItem->image")}}' alt="" class="news-latest-image img-responsive">
 	                                            	</a>
 	                                                
 	                                            </div>
@@ -171,7 +171,7 @@
                             <div class="post clearfix">
                                 <div class="mini-widget-thumb">
                                     <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-                                        <img alt="" src='{{asset("upload/thumbnails/$newsItem->image")}}' class="img-responsive">
+                                        <img alt="" src='{{asset("$server/thumbnails/$newsItem->image")}}' class="img-responsive">
                                     </a>
                                 </div>
                                 <div class="mini-widget-title">
@@ -214,7 +214,7 @@
                                 </div>
                                 <div class="mini-widget-thumb">
                                     <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-                                        <img alt="" src='{{asset("upload/thumbnails/$newsItem->image")}}' class="img-responsive">
+                                        <img alt="" src='{{asset("$server/thumbnails/$newsItem->image")}}' class="img-responsive">
                                     </a>
                                 </div>
                                 

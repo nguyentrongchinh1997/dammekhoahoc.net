@@ -12,7 +12,7 @@
 	                            <div class="post clearfix">
 	                                <div class="post-media">
 	                                    <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-	                                        <img alt="{{$newsItem->title}}" src='{{asset("upload/og_images/$newsItem->image") }}' class="img-responsive">
+	                                        <img alt="{{$newsItem->title}}" src='{{asset("$server/og_images/$newsItem->image") }}' class="img-responsive">
 	                                    </a>
 	                                </div>
 	                                <div class="large-widget-title">
@@ -51,7 +51,7 @@
                                 <div class="post clearfix">
                                     <div class="mini-widget-thumb">
                                         <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-                                            <img alt="" src='{{asset("upload/thumbnails/$newsItem->image")}}' class="img-responsive">
+                                            <img alt="" src='{{asset("$server/thumbnails/$newsItem->image")}}' class="img-responsive">
                                         </a>
                                     </div>
                                     <div class="mini-widget-title">
@@ -78,7 +78,7 @@
                                     </div>
                                     <div class="mini-widget-thumb">
                                         <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-                                            <img alt="" src='{{asset("upload/thumbnails/$newsItem->image")}}' class="img-responsive">
+                                            <img alt="" src='{{asset("$server/thumbnails/$newsItem->image")}}' class="img-responsive">
                                         </a>
                                     </div>
                                     
@@ -102,7 +102,7 @@
 	                            <div class="post-review col-xs-12 col-sm-4 col-md-3 col-lg-3">
 	                                <div class="post-media entry">
 	                                	<a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-	                                		<img src='{{asset("upload/og_images/$newsItem->image")}}' alt="{{$newsItem->title}}" class="news-latest-image img-responsive">
+	                                		<img src='{{asset("$server/og_images/$newsItem->image")}}' alt="{{$newsItem->title}}" class="news-latest-image img-responsive">
 	                                	</a>
 	                                    
 	                                </div>
@@ -136,7 +136,7 @@
                                         <div class="post clearfix">
                                             <div class="mini-widget-thumb">
                                                 <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-                                                    <img alt="{{$newsItem->title}}" src='{{asset("upload/thumbnails/$newsItem->image") }}' class="img-responsive">
+                                                    <img alt="{{$newsItem->title}}" src='{{asset("$server/thumbnails/$newsItem->image") }}' class="img-responsive">
                                                 </a>
                                             </div>
                                             <div class="mini-widget-title">

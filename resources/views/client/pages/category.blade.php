@@ -25,14 +25,14 @@
                                             <small>&#124;</small>
                                             <span><a href="category.html"><i class="fa fa-clock-o"></i> {{date('d/m/Y', strtotime($newsItem->date))}}</a></span>
                                             <small class="hidden-xs">&#124;</small>
-                                            <span class="hidden-xs"><a href="single.html"><i class="fa fa-eye"></i> {{$newsItem->view}}</a></span>
+                                            <span class="hidden-xs"><a href="#"><i class="fa fa-eye"></i> {{$newsItem->view}}</a></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="post-media">
                                         <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-                                            <img alt="{{$newsItem->title}}" src='{{asset("upload/thumbnails/$newsItem->image")}}' class="border-image img-responsive">
+                                            <img alt="{{$newsItem->title}}" src='{{asset("$server/thumbnails/$newsItem->image")}}' class="border-image img-responsive">
                                         </a>
                                     </div>
                                 </div>
@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="mini-widget-thumb">
                                     <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-                                        <img alt="" src='{{asset("upload/thumbnails/$newsItem->image")}}' class="img-responsive">
+                                        <img alt="" src='{{asset("$server/thumbnails/$newsItem->image")}}' class="img-responsive">
                                     </a>
                                 </div>
                                 

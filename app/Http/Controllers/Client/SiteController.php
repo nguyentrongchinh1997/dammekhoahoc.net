@@ -23,6 +23,7 @@ class SiteController extends Controller
             $data = [
                 'categories' => $categories,
                 'newsRandom' => $newsRandom,
+                'server' => 'https://dataserverr.s3-ap-southeast-1.amazonaws.com/photos/',
             ];
             
             $view->with($data);

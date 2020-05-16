@@ -27,7 +27,7 @@
             @foreach ($newsRandom as $newsItem)
                 <div class="post clearfix" style="margin-bottom: 0px">
                     <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-                        <img class="image-sidebar" src='{{asset("upload/thumbnails/$newsItem->image")}}' alt="{{$newsItem->title}}" title="{{$newsItem->title}}">
+                        <img class="image-sidebar" src='{{asset("$server/thumbnails/$newsItem->image")}}' alt="{{$newsItem->title}}" title="{{$newsItem->title}}">
                     </a>
                     <h3 class="title-sidebar" title="{{$newsItem->title}}">
                         <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
