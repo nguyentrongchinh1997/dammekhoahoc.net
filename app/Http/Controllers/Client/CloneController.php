@@ -44,34 +44,34 @@ class CloneController extends Controller
 		$this->thuVienAnh = 32;
 		$this->gocHaiHuoc = 33;
 		$this->video = 34;
-		$this->server = 'https://dataserverr.s3-ap-southeast-1.amazonaws.com/';
+		$this->server = 'http://static.dammekhoahoc.net/';
 	}
 
     public function clone(Request $request)
     {
     	$this->cloneCongNghe('https://khoahoc.tv/khoa-hoc-quan-su', $this->khoaHocQuanSu);
-    	// $this->cloneCongNghe('https://khoahoc.tv/lich-su', $this->lichSu);
-    	// $this->cloneCongNghe('https://khoahoc.tv/trac-nghiem-khoa-hoc', $this->tracNghiemKhoaHoc);
-    	// $this->cloneCongNghe('https://khoahoc.tv/nguoi-ngoai-hanh-tinh', $this->nguoiNgoaiHanhTinh);
-    	// $this->cloneCongNghe('https://khoahoc.tv/di-san-the-gioi', $this->kyQuanTheGioi);
-    	// $this->cloneCongNghe('https://khoahoc.tv/chinh-phuc-sao-hoa', $this->chinhPhucNgoiSao);
-    	// $this->cloneCongNghe('https://khoahoc.tv/ngay-tan-the', $this->ngayTanThe);
-    	// $this->cloneCongNghe('https://khoahoc.tv/danh-nhan-the-gioi', $this->danhNhanTheGioi);
-    	// $this->cloneCongNghe('https://khoahoc.tv/the-gioi-dong-vat', $this->theGioiDongVat);
-    	// $this->cloneCongNghe('https://khoahoc.tv/dai-duong-hoc', $this->daiDuongHoc);
-    	// $this->cloneCongNghe('https://khoahoc.tv/khao-co-hoc', $this->khaoCoHoc);
-    	// $this->cloneCongNghe('https://khoahoc.tv/sinh-vat-hoc', $this->sinhVatHoc);
-    	// $this->cloneCongNghe('https://khoahoc.tv/ai-tri-tue-nhan-tao', $this->Ai);
-    	// $this->cloneCongNghe('https://khoahoc.tv/phat-minh', $this->phatMinh);
-    	// $this->cloneCongNghe('https://khoahoc.tv/may-tinh', $this->khoaHocMayTinh);
-    	// $this->cloneCongNghe('https://khoahoc.tv/phan-mem', $this->phanMem);
-    	// $this->cloneCongNghe('https://khoahoc.tv/cong-nghe-moi', $this->congNgheMoi);
-    	// $this->cloneCongNghe('https://khoahoc.tv/yhoc', $this->yHoc);
-    	// $this->cloneCongNghe('https://khoahoc.tv/1001-bi-an', $this->biAn);
-    	// $this->cloneCongNghe('https://khoahoc.tv/vu-tru', $this->khoaHoc);
-    	// $this->cloneCongNghe('https://khoahoc.tv/kham-pha-khoa-hoc', $this->khamPha);
-    	// $this->cloneCongNghe('https://khoahoc.tv/doi-song', $this->doiSong);
-    	// $this->cloneCongNghe('https://khoahoc.tv/cong-nghe', $this->congNghe);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/lich-su', $this->lichSu);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/trac-nghiem-khoa-hoc', $this->tracNghiemKhoaHoc);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/nguoi-ngoai-hanh-tinh', $this->nguoiNgoaiHanhTinh);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/di-san-the-gioi', $this->kyQuanTheGioi);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/chinh-phuc-sao-hoa', $this->chinhPhucNgoiSao);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/ngay-tan-the', $this->ngayTanThe);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/danh-nhan-the-gioi', $this->danhNhanTheGioi);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/the-gioi-dong-vat', $this->theGioiDongVat);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/dai-duong-hoc', $this->daiDuongHoc);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/khao-co-hoc', $this->khaoCoHoc);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/sinh-vat-hoc', $this->sinhVatHoc);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/ai-tri-tue-nhan-tao', $this->Ai);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/phat-minh', $this->phatMinh);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/may-tinh', $this->khoaHocMayTinh);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/phan-mem', $this->phanMem);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/cong-nghe-moi', $this->congNgheMoi);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/yhoc', $this->yHoc);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/1001-bi-an', $this->biAn);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/vu-tru', $this->khoaHoc);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/kham-pha-khoa-hoc', $this->khamPha);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/doi-song', $this->doiSong);
+    // 	$this->cloneCongNghe('https://khoahoc.tv/cong-nghe', $this->congNghe);
     	
     	// $this->cloneCongNghe('https://khoahoc.tv/benh-va-cach-chua', $this->benh);
     	// $this->cloneCongNghe('https://khoahoc.tv/moi-truong', $this->moiTruong);
