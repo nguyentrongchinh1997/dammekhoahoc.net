@@ -9,10 +9,11 @@
                     <div class="widget">
                         <div class="large-widget m30">
                         	@foreach ($news as $newsItem)
+                                @php $path = \App\Helper\helper::getImage($newsItem->type); @endphp
 	                            <div class="post clearfix">
 	                                <div class="post-media">
 	                                    <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-	                                        <img alt="{{$newsItem->title}}" src='{{asset("$server/og_images/$newsItem->image") }}' class="img-responsive">
+	                                        <img alt="{{$newsItem->title}}" src='{{asset("$path/og_images/$newsItem->image") }}' class="img-responsive">
 	                                    </a>
 	                                </div>
 	                                <div class="large-widget-title">
@@ -48,10 +49,11 @@
 
                         <div class="mini-widget carrier-widget m30">
                             @foreach ($bestView as $newsItem)
+                                @php $path = \App\Helper\helper::getImage($newsItem->type); @endphp
                                 <div class="post clearfix">
                                     <div class="mini-widget-thumb">
                                         <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-                                            <img alt="" src='{{asset("$server/thumbnails/$newsItem->image")}}' class="img-responsive">
+                                            <img alt="" src='{{asset("$path/thumbnails/$newsItem->image")}}' class="img-responsive">
                                         </a>
                                     </div>
                                     <div class="mini-widget-title">
@@ -71,6 +73,7 @@
 
                         <div class="mini-widget carrier-widget m30">
                             @foreach ($bestView as $newsItem)
+                                @php $path = \App\Helper\helper::getImage($newsItem->type); @endphp
                                 <div class="post clearfix">
                                     <div class="mini-widget-title" style="padding-left: 0px; padding-right: 15px">
                                         <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}"> {{$newsItem->title}}</a>
@@ -78,7 +81,7 @@
                                     </div>
                                     <div class="mini-widget-thumb">
                                         <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-                                            <img alt="" src='{{asset("$server/thumbnails/$newsItem->image")}}' class="img-responsive">
+                                            <img alt="" src='{{asset("$path/thumbnails/$newsItem->image")}}' class="img-responsive">
                                         </a>
                                     </div>
                                     
@@ -99,10 +102,11 @@
 
                         <div class="review-posts row m30">
                         	@foreach ($newsLatest as $newsItem)
+                                @php $path = \App\Helper\helper::getImage($newsItem->type); @endphp
 	                            <div class="post-review col-xs-12 col-sm-4 col-md-3 col-lg-3">
 	                                <div class="post-media entry">
 	                                	<a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-	                                		<img src='{{asset("$server/og_images/$newsItem->image")}}' alt="{{$newsItem->title}}" class="news-latest-image img-responsive">
+	                                		<img src='{{asset("$path/og_images/$newsItem->image")}}' alt="{{$newsItem->title}}" class="news-latest-image img-responsive">
 	                                	</a>
 	                                    
 	                                </div>
@@ -133,10 +137,11 @@
                                 </div>
                                 <div class="mini-widget m30">
                                     @foreach (\App\Helper\helper::getNewsCategory($categoryItem->id) as $newsItem)
+                                        @php $path = \App\Helper\helper::getImage($newsItem->type); @endphp
                                         <div class="post clearfix">
                                             <div class="mini-widget-thumb">
                                                 <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-                                                    <img alt="{{$newsItem->title}}" src='{{asset("$server/thumbnails/$newsItem->image") }}' class="img-responsive">
+                                                    <img alt="{{$newsItem->title}}" src='{{asset("$path/thumbnails/$newsItem->image") }}' class="img-responsive">
                                                 </a>
                                             </div>
                                             <div class="mini-widget-title">

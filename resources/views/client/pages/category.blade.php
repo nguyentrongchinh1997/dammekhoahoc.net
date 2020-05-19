@@ -8,6 +8,7 @@
                 <div class="widget searchwidget">
                     <input type="hidden" id="cate" value="{{$category->id}}">
                 	@foreach ($newsList as $newsItem)
+                        @php $path = \App\Helper\helper::getImage($newsItem->type); @endphp
                         <div class="large-widget m30">
                             <div class="post row clearfix">
                             	<div class="col-md-8">
@@ -32,7 +33,7 @@
                                 <div class="col-md-4">
                                     <div class="post-media">
                                         <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-                                            <img alt="{{$newsItem->title}}" src='{{asset("$server/thumbnails/$newsItem->image")}}' class="border-image img-responsive">
+                                            <img alt="{{$newsItem->title}}" src='{{asset("$path/thumbnails/$newsItem->image")}}' class="border-image img-responsive">
                                         </a>
                                     </div>
                                 </div>
@@ -52,6 +53,7 @@
 
                     <div class="mini-widget carrier-widget m30">
                         @foreach ($bestView as $newsItem)
+                            @php $path = \App\Helper\helper::getImage($newsItem->type); @endphp
                             <div class="post clearfix">
                                 <div class="mini-widget-title" style="padding-left: 0px; padding-right: 15px">
                                     <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}"> {{$newsItem->title}}</a>
@@ -59,13 +61,12 @@
                                 </div>
                                 <div class="mini-widget-thumb">
                                     <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-                                        <img alt="" src='{{asset("$server/thumbnails/$newsItem->image")}}' class="img-responsive">
+                                        <img alt="" src='{{asset("$path/thumbnails/$newsItem->image")}}' class="img-responsive">
                                     </a>
                                 </div>
                                 
                             </div>
                         @endforeach
-                        
                     </div>
                 </div>
             </div>

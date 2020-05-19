@@ -11,7 +11,6 @@
                         <h3><a href="{{route('category', ['slug' => $cate->slug])}}">{{$cate->name}}</a></h3>
                     </div>
                 </div>
-
                 <hr class="hr-custom">
             @endforeach
         </div>
@@ -25,9 +24,10 @@
 
         <div class="mini-widget m30">
             @foreach ($newsRandom as $newsItem)
+                @php $path = \App\Helper\helper::getImage($newsItem->type); @endphp
                 <div class="post clearfix" style="margin-bottom: 0px">
                     <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">
-                        <img class="image-sidebar" src='{{asset("$server/thumbnails/$newsItem->image")}}' alt="{{$newsItem->title}}" title="{{$newsItem->title}}">
+                        <img class="image-sidebar" src='{{asset("$path/thumbnails/$newsItem->image")}}' alt="{{$newsItem->title}}" title="{{$newsItem->title}}">
                     </a>
                     <h3 class="title-sidebar" title="{{$newsItem->title}}">
                         <a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">

@@ -18,5 +18,14 @@ class Helper
 	{
 		return News::where('category_id', $categoryId)->take(4)->get();
 	}
+
+	public static function getImage($type)
+	{
+		if ($type == 0) {
+			return 'http://static.dammekhoahoc.net/photos';
+		} else if ($type == 1) {
+			return 'upload';
+		}
+	}
 }
 
