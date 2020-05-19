@@ -24,7 +24,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-12">
-                        <a class="navbar-brand" href="index.html"><img src="{{asset('asset/images/logo.png')}}" alt=""></a>
+                        <a class="navbar-brand" href="index.html"><img src="{{asset('asset/images/logo2.png')}}" alt=""></a>
                     </div>
                     <div class="col-md-9 col-sm-12">
                         <div class="ads-widget clearfix">

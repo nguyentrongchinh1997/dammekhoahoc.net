@@ -244,3 +244,9 @@ a:hover{
 .video-detail{
     text-align: center;
 }
+#navbar{
+    padding: 0px;
+}
+#wrapper .sitecontainer {
+    padding: 15px;
+}
