@@ -13,4 +13,6 @@ yarn-error.log
 /public/upload
 /public/asset/images
 /public/asset/upload
+/public/ckeditor_full
+
 

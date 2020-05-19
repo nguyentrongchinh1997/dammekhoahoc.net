@@ -22,7 +22,8 @@ class News extends Model
 		'md5_link',
 		'author',
 		'date',
-		'status'
+		'status',
+		'type'
     ];
 
     public function category()
