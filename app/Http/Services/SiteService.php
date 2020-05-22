@@ -113,6 +113,28 @@ class SiteService
 // 		}
 	}
 
+	public function search($request)
+	{
+		try {
+			$idList = array();
+			$key = $request->key;
+			$newsList = $this->newsModel->where('title', 'like', '%' . $key . '%')->paginate();
+			$idList = $this->getId($idList);
+			$hotNews = $this->newsModel->whereNotIn('id', $idList)
+									   ->latest('view')
+									   ->limit(10)
+									   ->get();
+			$data = [
+				'newsList' => $newsList,
+				'hotNews' => $hotNews,
+			];
+
+			return $data;
+		} catch (\Exception $e) {
+			return NULL;
+		}
+	}
+
 	public function getId($idList)
 	{
 		$idNewsRelate = array();

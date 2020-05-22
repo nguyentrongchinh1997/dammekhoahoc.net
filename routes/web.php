@@ -31,6 +31,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
 	});
 });
 
+Route::get('tim-kiem', 'Client\SiteController@search')->name('search');
 Route::get('clone', 'Client\CloneController@clone');
 Route::get('/', 'Client\SiteController@home')->name('home');
 Route::get('{slug}-{id}', 'Client\SiteController@detail')->where(array('slug' => '[a-z0-9\-]+', 'id' => '[0-9]+'))->name('detail');

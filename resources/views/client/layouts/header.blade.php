@@ -8,7 +8,6 @@
     <title>@yield('title')</title>
     @yield('seo')
     <base href="{{asset('')}}">
-    <!-- TEMPLATE STYLES -->
     <link rel="stylesheet" type="text/css" href="{{asset('asset/css/font-awesome.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('asset/css/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('asset/style.css')}}">
@@ -98,7 +97,9 @@
                                         <li>
                                             <div id="custom-search-input">
                                                 <div class="input-group col-md-12">
-                                                    <input type="text" class="form-control input-lg" placeholder="Search here..." />
+                                                    <form method="get" action="{{route('search')}}">
+                                                        <input type="text" name="key" class="form-control input-lg" placeholder="Tìm kiếm bài viết..."/>
+                                                    </form>
                                                     <span class="input-group-btn">
                                                         <button class="btn btn-primary btn-lg" type="button">
                                                             <i class="fa fa-search"></i>

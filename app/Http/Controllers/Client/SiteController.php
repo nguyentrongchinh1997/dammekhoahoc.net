@@ -58,5 +58,12 @@ class SiteController extends Controller
     		return NULL;
     	}
     }
+
+    public function search(Request $request)
+    {
+        $data = $this->siteService->search($request);
+
+        return view('client.pages.search', $data);
+    }
 }
 
