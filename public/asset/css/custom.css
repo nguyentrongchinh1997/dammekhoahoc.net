@@ -284,3 +284,9 @@ a:hover{
 .top-header ul li{
     display: inline-block;
 }
+#logo{
+    max-width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}

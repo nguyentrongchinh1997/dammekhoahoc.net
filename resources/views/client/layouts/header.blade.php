@@ -42,8 +42,8 @@
         <div class="logo-wrapper">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-12">
-                        <a class="navbar-brand" href="index.html"><img src="{{asset('asset/images/logo2.png')}}" alt=""></a>
+                    <div class="col-md-12 col-sm-12">
+                        <a class="navbar-brand" href="{{route('home')}}"><img id="logo" src="{{asset('asset/images/logo2.png')}}" alt=""></a>
                     </div>
                 </div>
             </div>
