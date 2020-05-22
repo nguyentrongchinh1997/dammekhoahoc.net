@@ -61,12 +61,19 @@ class SiteService
 
 	public function detail($slug, $id)
 	{
-		try {
+		//try {
 			$news = $this->newsModel->findOrFail($id);
-			$categorySameNews = $this->newsModel->where('id', '!=', $news->id)
+			if (count($news->category->news) > 6) {
+			    $categorySameNews = $this->newsModel->where('id', '!=', $news->id)
 												->where('category_id', $news->category_id)
 												->get()
 												->random(6);
+			} else {
+			    $categorySameNews = $this->newsModel->where('id', '!=', $news->id)
+												->where('category_id', $news->category_id)
+												->get();
+			}
+			
 			$newsLatest = $this->newsModel->where('id', '!=', $news->id)
 									->latest('date')
 									 ->limit(8)
@@ -77,7 +84,6 @@ class SiteService
 			
 			$keywords = explode(',', $news->keyword);
 			$idNewsRelate = $this->getId($categorySameNews);
-
 			foreach ($keywords as $key) {
 				$newsRelate = $this->newsModel->where('id', '!=', $news->id)
 											  ->whereNotIn('id', $idNewsRelate)
@@ -102,9 +108,9 @@ class SiteService
 			];
 
 			return $data;	
-		} catch (\Exception $e) {
-			return NULL;
-		}
+// 		} catch (\Exception $e) {
+// 			return NULL;
+// 		}
 	}
 
 	public function getId($idList)

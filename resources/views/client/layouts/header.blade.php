@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,8 +17,6 @@
     <link rel="icon" type="image/png" href="{{asset('asset/images/16x16-01.png')}}" sizes="16x16">
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset('asset/images/180x180-01.png')}}">
     <link rel="icon" type="image/png" href="{{asset('asset/images/32x32-01.png')}}" sizes="32x32">
-    
-
 </head>
 
 <body>
@@ -29,11 +27,11 @@
                     <div class="col-md-3 col-sm-12">
                         <a class="navbar-brand" href="index.html"><img src="{{asset('asset/images/logo2.png')}}" alt=""></a>
                     </div>
-                    <div class="col-md-9 col-sm-12">
-                        <div class="ads-widget clearfix">
-                            <a href="#"><img src="{{asset('asset/upload/banner_03.jpg')}}" alt="" class="img-responsive"></a>
-                        </div>
-                    </div>
+                    <!--<div class="col-md-9 col-sm-12">-->
+                    <!--    <div class="ads-widget clearfix">-->
+                    <!--        <a href="#"><img src="{{asset('asset/upload/banner_03.jpg')}}" alt="" class="img-responsive"></a>-->
+                    <!--    </div>-->
+                    <!--</div>-->
                 </div>
             </div>
         </div>

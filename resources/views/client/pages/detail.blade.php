@@ -67,14 +67,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m22 related-posts">
+                        @if (count($newsRelate) > 0)
+                            <div class="row m22 related-posts">
                             <div class="col-md-12">
                                 <div class="widget">
                                     <div class="widget-title">
                                         <h3>Tin liên quan</h3>
                                         <hr>
-                                    </div><!-- end widget-title -->
-
+                                    </div>
                                     <div class="review-posts row m30">
                                     	@foreach ($newsRelate as $newsItem)
                                             @php $path = \App\Helper\helper::getImage($newsItem->type); @endphp
@@ -124,7 +124,9 @@
                                 </div> 
                             </div>
                         </div>
-                        <div class="row m22 related-posts" style="margin-top: 0px">
+                        @endif
+                        @if (count($categorySameNews) > 0)
+                            <div class="row m22 related-posts" style="margin-top: 0px">
                             <div class="col-md-12">
                                 <div class="widget">
                                     <div class="widget-title" style="padding-top: 0px">
@@ -158,6 +160,7 @@
                                 </div> 
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>

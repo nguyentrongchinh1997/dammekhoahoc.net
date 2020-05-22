@@ -41,7 +41,7 @@ class SiteService
 	{
 		return $data = [
 			'stt' => 0,
-			'newsList' => $this->newsModel->latest('date')->paginate(10),
+			'newsList' => $this->newsModel->latest('id')->paginate(10),
 		];
 	}
 

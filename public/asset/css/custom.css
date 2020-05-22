@@ -250,3 +250,13 @@ a:hover{
 #wrapper .sitecontainer {
     padding: 15px;
 }
+.body-content img{
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: auto !important;
+}
+.body-content ul li{
+    margin-bottom: 20px;
+}

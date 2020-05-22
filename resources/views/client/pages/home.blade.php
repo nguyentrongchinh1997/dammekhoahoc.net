@@ -21,7 +21,7 @@
 	                                		<a href="{{route('detail', ['slug' => $newsItem->slug, 'id' => $newsItem->id])}}">{{$newsItem->title}}</a>
 	                                	</h3>
 	                                	<p class="summury">
-	                                		{!! $newsItem->summury !!}
+	                                		{!! strip_tags($newsItem->summury) !!}
 	                                	</p>
 	                                </div>
 	                                <div class="large-post-meta home-large-post-meta">

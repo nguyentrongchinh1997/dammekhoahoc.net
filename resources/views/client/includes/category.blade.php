@@ -5,13 +5,15 @@
             <hr>
         </div>
         <div class="review-posts m30">
-        	@foreach ($categories as $cate)
-                <div class="post-review">
-                    <div class="post-title cate-all">
-                        <h3><a href="{{route('category', ['slug' => $cate->slug])}}">{{$cate->name}}</a></h3>
+        	@foreach ($categories as $key => $cate)
+        	    @if ($key > 5)
+                    <div class="post-review">
+                        <div class="post-title cate-all">
+                            <h3><a href="{{route('category', ['slug' => $cate->slug])}}">{{$cate->name}}</a></h3>
+                        </div>
                     </div>
-                </div>
-                <hr class="hr-custom">
+                    <hr class="hr-custom">
+                @endif
             @endforeach
         </div>
     </div>

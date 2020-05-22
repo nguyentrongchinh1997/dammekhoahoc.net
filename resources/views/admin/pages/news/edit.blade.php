@@ -49,7 +49,7 @@
                     <label>Chuyên mục</label>
                     <select data-placeholder="Select department" class="select-full" tabindex="2" name="category_id">
                         @foreach ($categories as $cate)
-                            <option value="{{$cate->id}}">{{$cate->name}}</option>
+                            <option @if($cate->id == $news->category_id){{'selected'}}@endif value="{{$cate->id}}">{{$cate->name}}</option>
                         @endforeach
                     </select>
                 </div>

@@ -32,12 +32,12 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <td colspan="7">
+                            <td colspan="9">
                                 <input type="text" autocomplete="off" id="search" placeholder="Từ khóa tìm kiếm" class="form-control" name="">
                             </td>
                             <td>
                                 <button class="btn btn-primary">
-                                    <a style="color: #fff" href="#">Thêm</a>
+                                    <a style="color: #fff" href="{{route('admin.news.add')}}">Thêm</a>
                                 </button>
                             </td>
                         </tr>
@@ -56,12 +56,13 @@
                     </thead>
                     <tbody id="result-search">
                     	@foreach ($newsList as $post)
+                    	    @php $path = \App\Helper\helper::getImage($post->type) @endphp
                             <tr>
                                 <td>
                                     {{ ++$stt }}
                                 </td>
                                 <td>
-                                    <img src='{{asset("upload/thumbnails/$post->image")}}' width="100px">
+                                    <img src='{{asset("$path/thumbnails/$post->image")}}' width="100px">
                                 </td>
                                 <td>
                                     <a target="_blank" href="{{route('detail', ['slug' => $post->slug, 'id' => $post->id])}}">
