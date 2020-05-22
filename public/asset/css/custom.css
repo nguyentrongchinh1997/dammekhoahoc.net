@@ -260,3 +260,27 @@ a:hover{
 .body-content ul li{
     margin-bottom: 20px;
 }
+.top-header{
+    padding: 10px 15px;
+}
+.top-header .send-post{
+    float: right;
+}
+.top-header a{
+    color: #818181;
+}
+.top-header i {
+    padding-right: 5px;
+}
+.top-header a:hover{
+    color: #007f74;
+}
+.top-header ul{
+    list-style-type: none;
+}
+.top-header ul{
+    padding-left: 0px;
+}
+.top-header ul li{
+    display: inline-block;
+}

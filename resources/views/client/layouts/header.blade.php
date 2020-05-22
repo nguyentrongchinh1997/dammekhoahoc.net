@@ -16,9 +16,28 @@
     <link rel="icon" type="image/png" href="{{asset('asset/images/16x16-01.png')}}" sizes="16x16">
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset('asset/images/180x180-01.png')}}">
     <link rel="icon" type="image/png" href="{{asset('asset/images/32x32-01.png')}}" sizes="32x32">
+    <link rel="stylesheet" href="https://fontawesome.com/v4.7.0/assets/font-awesome/css/font-awesome.css">
 </head>
 
 <body>
+    <div class="row" style="border: 1px solid #f0f0f0; margin: 0px">
+        <div class="top-header container">
+            <ul>
+                <li style="margin-top: 10px;">
+                    <a href=""><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập</a>
+                </li>
+                <li style="padding: 0px 10px; color: #ccc">
+                    |
+                </li>
+                <li style="margin-top: 10px">
+                    <a href=""><i class="fa fa-user-plus" aria-hidden="true"></i> Đăng ký</a>
+                </li>
+                <li style="float: right;">
+                    <a href="mailto:contact@diembao24h.net" class="btn btn-primary send-post"><i class="fa fa-paper-plane" aria-hidden="true"></i>Gửi bài</a>
+                </li>
+            </ul>
+        </div>
+    </div>
     <div id="wrapper">
         <div class="logo-wrapper">
             <div class="container">
@@ -26,11 +45,6 @@
                     <div class="col-md-3 col-sm-12">
                         <a class="navbar-brand" href="index.html"><img src="{{asset('asset/images/logo2.png')}}" alt=""></a>
                     </div>
-                    <!--<div class="col-md-9 col-sm-12">-->
-                    <!--    <div class="ads-widget clearfix">-->
-                    <!--        <a href="#"><img src="{{asset('asset/upload/banner_03.jpg')}}" alt="" class="img-responsive"></a>-->
-                    <!--    </div>-->
-                    <!--</div>-->
                 </div>
             </div>
         </div>
