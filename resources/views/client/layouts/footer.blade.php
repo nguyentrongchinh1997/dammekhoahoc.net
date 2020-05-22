@@ -90,6 +90,7 @@
     <script src="{{asset('asset/js/jquery.min.js')}}"></script>
     <script src="{{asset('asset/js/bootstrap.js')}}"></script>
     <!--<script src="{{asset('asset/js/plugins.js')}}"></script>-->
+    @yield('js')
     <script type="text/javascript">
         $(function(){
             value = $('#cate').val();

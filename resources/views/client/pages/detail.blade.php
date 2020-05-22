@@ -9,6 +9,17 @@
 @endsection
 
 @section('content')
+    <ul class="dm-social">
+        <li class="facebookbg"><a href="#" class="fa fa-facebook" data-toggle="tooltip" data-placement="right" title="" data-original-title="Facebook">Facebook</a></li>
+        <li class="googlebg"><a href="#" class="fa fa-google-plus" data-toggle="tooltip" data-placement="right" title="" data-original-title="Google+">Google+</a></li>
+        <li class="twitterbg"><a href="#" class="fa fa-twitter" data-toggle="tooltip" data-placement="right" title="" data-original-title="Twitter">Twitter</a></li>
+        {{-- <li class="pinterestbg"><a href="#" class="fa fa-pinterest" data-toggle="tooltip" data-placement="right" title="" data-original-title="Pinterest">Pinterest</a></li>
+        <li class="linkedinbg"><a href="#" class="fa fa-linkedin" data-toggle="tooltip" data-placement="right" title="" data-original-title="Linkedin">Linkedin</a></li>
+        <li class="rssbg"><a href="#" class="fa fa-rss" data-toggle="tooltip" data-placement="right" title="" data-original-title="RSS">RSS</a></li>
+        <li class="share">
+            <a href="#" class="fa fa-share-alt" data-toggle="tooltip" data-placement="right" title="" data-original-title="91k Share"></a>
+        </li> --}}
+    </ul>
     <div class="container sitecontainer single-wrapper bgw">
         <div class="row">
             <input type="hidden" value="{{$news->category->id}}" id="cate">
@@ -31,17 +42,9 @@
                                     <span><a href="category.html"><i class="fa fa-clock-o"></i> {{date('d/m/Y', strtotime($news->date))}}</a></span>
                                     <small class="hidden-xs">&#124;</small>
                                     <span class="hidden-xs"><a href="#"><i class="fa fa-eye"></i> {{$news->view}}</a></span>
-                                </div><!-- end meta -->
-
-                                <div class="post-sharing">
-                                    <ul class="list-inline">
-                                        <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="hidden-xs">Share on Facebook</span></a></li>
-                                        <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="hidden-xs">Tweet on Twitter</span></a></li>
-                                        <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
-                                    </ul>
-                                </div><!-- end post-sharing -->
-                            </div><!-- /.pull-right -->
-                        </div><!-- end post -->
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="post-desc">
                         	<p class="detail-summury">
@@ -233,4 +236,19 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script type="text/javascript">
+        var ads = $("header.header").offset().top;
+        $(window).scroll(function(){
+            var width = $(window).width();
+            
+            if ($(window).scrollTop() > ads) {
+                $('.dm-social').css({'top':'15%'});
+            } else {
+                $('.dm-social').css({'top':'50%'})
+            }
+        });
+    </script>
 @endsection

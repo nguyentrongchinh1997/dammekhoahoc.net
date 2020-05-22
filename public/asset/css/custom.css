@@ -290,3 +290,47 @@ a:hover{
     margin-right: auto;
     display: block;
 }
+.dm-social {
+    position: fixed;
+    overflow: visible;
+    top: 50%;
+    left: 90px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    z-index: 110;
+    background: #fff;
+}
+.dm-social li {
+    border: 1px solid #eee;
+}
+.dm-social .googlebg:hover{
+    background: #DA5333;
+}
+.dm-social .googlebg:hover a{
+    color: #fff
+}
+.dm-social .facebookbg:hover{
+    background: #3B5998;
+}
+.dm-social .facebookbg:hover a{
+    color: #fff
+}
+.dm-social .twitterbg:hover{
+    background: #00B6F1;
+}
+.dm-social .twitterbg:hover a{
+    color: #fff
+}
+/*.dm-social .googlebg{
+    background: #DA5333;
+}
+.dm-social li a{
+    color: #fff;
+}
+.dm-social .facebookbg{
+    background: #3B5998;
+}
+.dm-social .twitterbg{
+    background: #00B6F1;
+}*/
