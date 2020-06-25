@@ -1,5 +1,8 @@
 @extends('client.layouts.index')
 
+@section('title', 'Cộng đồng đam mê khoa học')
+
+
 @section('content')
 	<div class="container sitecontainer bgw"> 
         <div class="row">

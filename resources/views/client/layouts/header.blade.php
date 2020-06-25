@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <title>@yield('title')</title>
+    <meta name="description" content="@yield('description')">
+    
     @yield('seo')
     <base href="{{asset('')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('asset/css/font-awesome.min.css')}}">
@@ -17,6 +19,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset('asset/images/180x180-01.png')}}">
     <link rel="icon" type="image/png" href="{{asset('asset/images/32x32-01.png')}}" sizes="32x32">
     <link rel="stylesheet" href="https://fontawesome.com/v4.7.0/assets/font-awesome/css/font-awesome.css">
+    
+    <script data-ad-client="ca-pub-2710240011197720" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body>

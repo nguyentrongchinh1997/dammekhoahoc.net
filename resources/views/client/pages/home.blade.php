@@ -1,5 +1,8 @@
 @extends('client.layouts.index')
 
+@section('title', 'Website dành cho những bạn đam mê khoa học công nghệ')
+@section('description', 'Tổng hợp những bài viết mới nhất về các lĩnh vực khoa học của cuộc sống như: Toán học, Khoa học vũ trụ, y học, sinh học, quân sự, chuyện lạ, 1000 câu hỏi vì sao')
+
 @section('content')
         <div class="container sitecontainer bgw"> 
             <div class="row">

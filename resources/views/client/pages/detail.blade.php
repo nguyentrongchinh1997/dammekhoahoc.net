@@ -1,9 +1,9 @@
 @extends('client.layouts.index')
 
 @section('title', $news->title)
+@section('description', '(Đam mê khoa học) '.strip_tags($news->summury).' '.strip_tags($news->keyword))
 
 @section('seo')
-<meta name="description" content="{{strip_tags($news->summury)}}"/>
 <meta name="keywords" content="{{strip_tags($news->keyword)}}"/>
 <meta content='{{asset("$server/og_images/$news->image")}}' property="og:image"/>
 @endsection

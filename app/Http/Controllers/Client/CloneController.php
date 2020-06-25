@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\News;
+use App\Model\Category;
 
 class CloneController extends Controller
 {
@@ -49,44 +50,44 @@ class CloneController extends Controller
 
     public function clone(Request $request)
     {
-    	$this->cloneCongNghe('https://khoahoc.tv/khoa-hoc-quan-su', $this->khoaHocQuanSu);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/lich-su', $this->lichSu);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/trac-nghiem-khoa-hoc', $this->tracNghiemKhoaHoc);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/nguoi-ngoai-hanh-tinh', $this->nguoiNgoaiHanhTinh);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/di-san-the-gioi', $this->kyQuanTheGioi);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/chinh-phuc-sao-hoa', $this->chinhPhucNgoiSao);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/ngay-tan-the', $this->ngayTanThe);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/danh-nhan-the-gioi', $this->danhNhanTheGioi);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/the-gioi-dong-vat', $this->theGioiDongVat);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/dai-duong-hoc', $this->daiDuongHoc);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/khao-co-hoc', $this->khaoCoHoc);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/sinh-vat-hoc', $this->sinhVatHoc);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/ai-tri-tue-nhan-tao', $this->Ai);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/phat-minh', $this->phatMinh);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/may-tinh', $this->khoaHocMayTinh);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/phan-mem', $this->phanMem);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/cong-nghe-moi', $this->congNgheMoi);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/yhoc', $this->yHoc);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/1001-bi-an', $this->biAn);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/vu-tru', $this->khoaHoc);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/kham-pha-khoa-hoc', $this->khamPha);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/doi-song', $this->doiSong);
-    // 	$this->cloneCongNghe('https://khoahoc.tv/cong-nghe', $this->congNghe);
+    	$this->categoryClone('https://khoahoc.tv/khoa-hoc-quan-su', $this->khoaHocQuanSu);
+    	$this->categoryClone('https://khoahoc.tv/lich-su', $this->lichSu);
+    	$this->categoryClone('https://khoahoc.tv/trac-nghiem-khoa-hoc', $this->tracNghiemKhoaHoc);
+    	$this->categoryClone('https://khoahoc.tv/nguoi-ngoai-hanh-tinh', $this->nguoiNgoaiHanhTinh);
+    	$this->categoryClone('https://khoahoc.tv/di-san-the-gioi', $this->kyQuanTheGioi);
+    	$this->categoryClone('https://khoahoc.tv/chinh-phuc-sao-hoa', $this->chinhPhucNgoiSao);
+    	$this->categoryClone('https://khoahoc.tv/ngay-tan-the', $this->ngayTanThe);
+    	$this->categoryClone('https://khoahoc.tv/danh-nhan-the-gioi', $this->danhNhanTheGioi);
+    	$this->categoryClone('https://khoahoc.tv/the-gioi-dong-vat', $this->theGioiDongVat);
+    	$this->categoryClone('https://khoahoc.tv/dai-duong-hoc', $this->daiDuongHoc);
+    	$this->categoryClone('https://khoahoc.tv/khao-co-hoc', $this->khaoCoHoc);
+    	$this->categoryClone('https://khoahoc.tv/sinh-vat-hoc', $this->sinhVatHoc);
+    	$this->categoryClone('https://khoahoc.tv/ai-tri-tue-nhan-tao', $this->Ai);
+    	$this->categoryClone('https://khoahoc.tv/phat-minh', $this->phatMinh);
+    	$this->categoryClone('https://khoahoc.tv/may-tinh', $this->khoaHocMayTinh);
+    	$this->categoryClone('https://khoahoc.tv/phan-mem', $this->phanMem);
+    	$this->categoryClone('https://khoahoc.tv/cong-nghe-moi', $this->congNgheMoi);
+    	$this->categoryClone('https://khoahoc.tv/yhoc', $this->yHoc);
+    	$this->categoryClone('https://khoahoc.tv/1001-bi-an', $this->biAn);
+    	$this->categoryClone('https://khoahoc.tv/vu-tru', $this->khoaHoc);
+    	$this->categoryClone('https://khoahoc.tv/kham-pha-khoa-hoc', $this->khamPha);
+    	$this->categoryClone('https://khoahoc.tv/doi-song', $this->doiSong);
+    	$this->categoryClone('https://khoahoc.tv/cong-nghe', $this->congNghe);
     	
-    	// $this->cloneCongNghe('https://khoahoc.tv/benh-va-cach-chua', $this->benh);
-    	// $this->cloneCongNghe('https://khoahoc.tv/moi-truong', $this->moiTruong);
-    	// $this->cloneCongNghe('https://khoahoc.tv/benh-ung-thu', $this->benhUngThu);
-    	// $this->cloneCongNghe('https://khoahoc.tv/ung-dung', $this->ungDungKhoaHoc);
-    	// $this->cloneCongNghe('https://khoahoc.tv/ban-doc-khoa-hoc', $this->khoaHocVaBanDoc);
-    	// $this->cloneCongNghe('https://khoahoc.tv/cong-trinh', $this->congTrinhKhoaHoc);
-    	// $this->cloneCongNghe('https://khoahoc.tv/cau-chuyen', $this->cauChuyenKhoaHoc);
-    	// $this->cloneCongNghe('https://khoahoc.tv/su-kien-khoa-hoc', $this->suKienKhoaHoc);
-    	// $this->cloneCongNghe('https://khoahoc.tv/thu-vien-anh', $this->thuVienAnh);
-     //    $this->cloneCongNghe('https://khoahoc.tv/hai-huoc', $this->gocHaiHuoc);
-    	// $this->cloneCongNghe('https://khoahoc.tv/video', $this->video);
+    	$this->categoryClone('https://khoahoc.tv/benh-va-cach-chua', $this->benh);
+    	$this->categoryClone('https://khoahoc.tv/moi-truong', $this->moiTruong);
+    	$this->categoryClone('https://khoahoc.tv/benh-ung-thu', $this->benhUngThu);
+    	$this->categoryClone('https://khoahoc.tv/ung-dung', $this->ungDungKhoaHoc);
+    	$this->categoryClone('https://khoahoc.tv/ban-doc-khoa-hoc', $this->khoaHocVaBanDoc);
+    	$this->categoryClone('https://khoahoc.tv/cong-trinh', $this->congTrinhKhoaHoc);
+    	$this->categoryClone('https://khoahoc.tv/cau-chuyen', $this->cauChuyenKhoaHoc);
+    	$this->categoryClone('https://khoahoc.tv/su-kien-khoa-hoc', $this->suKienKhoaHoc);
+    	$this->categoryClone('https://khoahoc.tv/thu-vien-anh', $this->thuVienAnh);
+         $this->categoryClone('https://khoahoc.tv/hai-huoc', $this->gocHaiHuoc);
+    	$this->categoryClone('https://khoahoc.tv/video', $this->video);
     }
 
-    public function cloneCongNghe($link, $categoryId)
+    public function categoryClone($link, $categoryId)
     {
     	$html = file_get_html($link);
     	$domain = 'https://khoahoc.tv';

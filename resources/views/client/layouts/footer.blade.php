@@ -6,6 +6,9 @@
                     <div class="widget-title">
                         <h4>Giới thiệu</h4>
                         <hr>
+                              <div class="links-widget m30">
+                         <p>Website dành cho các bạn có niềm đam mê với khoa học công nghệ.</p>
+                         </div>
                     </div>
                 </div>
             </div>
@@ -17,7 +20,7 @@
                     </div>
                     <div class="links-widget m30">
                         <ul class="check">
-                            <li><a href="#">E-mail: contact@gmail.com</a></li>
+                            <li><a href="#">E-mail: contact@dammekhoahoc.net</a></li>
                             <li><a href="#">Địa chỉ: Bạch Mai, Hai Bà Trưng, Hà Nội</a></li>
                         </ul>
                     </div>
@@ -74,11 +77,7 @@
 
             <div class="col-md-6 col-sm-12">
                 <ul class="list-inline text-right" style="margin-bottom: 0px">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Shop</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="mailto:contact@dammekhoahoc.net">contact@dammekhoahoc.net</a></li>
                     <li><a class="topbutton" href="#">Back to top <i class="fa fa-angle-up"></i></a></li>
                 </ul>
             </div>
