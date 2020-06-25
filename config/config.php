@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'category' => [
+	'category_old' => [
 		1 => 'Công nghệ',
 		2 => 'Đời sống',
 		3 => 'Khám phá khoa học',
@@ -36,5 +36,67 @@ return [
 		32 => 'Thư viện ảnh',
 		33 => 'Góc hài hước',
 		34 => 'Video',
-	]
+	],
+	'category' => [
+		'1' => 'Công nghệ',
+		'2' => 'Đời sống',
+		'3' => 'Khám phá',
+		'4' => 'Bạn đọc',
+		'5' => 'Sự kiện',
+		'6' => 'Giải trí',
+	],
+	'sub_cate' => [
+		// công nghệ
+		'1' => [
+			'Công nghệ mới',
+			'Khoa học máy tính',
+			'AI - Trí tuệ nhân tạo',
+			'Phần mềm hữu ích',
+			'Phát minh khoa hoc',
+		],
+		// đời sống
+		'2' => [
+			'Bệnh và thông tin bênh',
+			'Môi trường',
+			'Virus Corona COVID-19 - Virut Vũ Hán',
+			'Y học - Sức khỏe',
+			'Bệnh ung thư',
+			'Ứng dụng khoa học',
+		],
+		// khám phá
+		'3' => [
+			'Khám phá khoa học',
+			'Sinh vật học',
+			'Khảo cổ học',
+			'Đại dương học',
+			'Thế giới động vật',
+			'Danh nhân thế giới',
+			'Khoa học vũ trụ',
+			'1001 bí ẩn',
+			'Ngày tận thế',
+			'Chinh phục sao Hỏa',
+			'Kỳ quan thế giới',
+			'Người ngoài hành tinh - UFO',
+			'Trắc nghiệm Khoa học',
+			'Lịch sử',
+			'Khoa học quân sự',
+			'Tại sao',
+		],
+		// Bạn đọc
+		'4' => [
+			'Khoa học & Bạn đọc',
+		],
+		// sự kiện
+		'5' => [
+			'Công trình khoa học',
+			'Câu chuyện khoa học',
+			'Sự kiện Khoa học',
+		],
+		// giải trí
+		'6' => [
+			'Thư viện ảnh',
+			'Góc hài hước',
+			'Video',
+		]
+	],
 ];

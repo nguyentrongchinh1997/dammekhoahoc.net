@@ -17,6 +17,7 @@ class News extends Model
 		'content_origin',
 		'view',
 		'category_id',
+		'sub_category_id',
 		'keyword',
 		'link',
 		'md5_link',
@@ -29,6 +30,11 @@ class News extends Model
     public function category()
     {
     	return $this->belongsTo(Category::class);
+    }
+
+    public function subCategory()
+    {
+    	return $this->belongsTo(SubCategory::class);
     }
 }
 

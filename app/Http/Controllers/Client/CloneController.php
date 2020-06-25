@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\News;
 use App\Model\Category;
+use App\Model\Turn;
+use App\Model\SubCategory;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class CloneController extends Controller
 {
@@ -48,43 +51,65 @@ class CloneController extends Controller
 		$this->server = 'http://static.dammekhoahoc.net/';
 	}
 
-    public function clone(Request $request)
+    public function clone()
     {
-    	$this->categoryClone('https://khoahoc.tv/khoa-hoc-quan-su', $this->khoaHocQuanSu);
-    	$this->categoryClone('https://khoahoc.tv/lich-su', $this->lichSu);
-    	$this->categoryClone('https://khoahoc.tv/trac-nghiem-khoa-hoc', $this->tracNghiemKhoaHoc);
-    	$this->categoryClone('https://khoahoc.tv/nguoi-ngoai-hanh-tinh', $this->nguoiNgoaiHanhTinh);
-    	$this->categoryClone('https://khoahoc.tv/di-san-the-gioi', $this->kyQuanTheGioi);
-    	$this->categoryClone('https://khoahoc.tv/chinh-phuc-sao-hoa', $this->chinhPhucNgoiSao);
-    	$this->categoryClone('https://khoahoc.tv/ngay-tan-the', $this->ngayTanThe);
-    	$this->categoryClone('https://khoahoc.tv/danh-nhan-the-gioi', $this->danhNhanTheGioi);
-    	$this->categoryClone('https://khoahoc.tv/the-gioi-dong-vat', $this->theGioiDongVat);
-    	$this->categoryClone('https://khoahoc.tv/dai-duong-hoc', $this->daiDuongHoc);
-    	$this->categoryClone('https://khoahoc.tv/khao-co-hoc', $this->khaoCoHoc);
-    	$this->categoryClone('https://khoahoc.tv/sinh-vat-hoc', $this->sinhVatHoc);
-    	$this->categoryClone('https://khoahoc.tv/ai-tri-tue-nhan-tao', $this->Ai);
-    	$this->categoryClone('https://khoahoc.tv/phat-minh', $this->phatMinh);
-    	$this->categoryClone('https://khoahoc.tv/may-tinh', $this->khoaHocMayTinh);
-    	$this->categoryClone('https://khoahoc.tv/phan-mem', $this->phanMem);
-    	$this->categoryClone('https://khoahoc.tv/cong-nghe-moi', $this->congNgheMoi);
-    	$this->categoryClone('https://khoahoc.tv/yhoc', $this->yHoc);
-    	$this->categoryClone('https://khoahoc.tv/1001-bi-an', $this->biAn);
-    	$this->categoryClone('https://khoahoc.tv/vu-tru', $this->khoaHoc);
-    	$this->categoryClone('https://khoahoc.tv/kham-pha-khoa-hoc', $this->khamPha);
-    	$this->categoryClone('https://khoahoc.tv/doi-song', $this->doiSong);
-    	$this->categoryClone('https://khoahoc.tv/cong-nghe', $this->congNghe);
-    	
-    	$this->categoryClone('https://khoahoc.tv/benh-va-cach-chua', $this->benh);
-    	$this->categoryClone('https://khoahoc.tv/moi-truong', $this->moiTruong);
-    	$this->categoryClone('https://khoahoc.tv/benh-ung-thu', $this->benhUngThu);
-    	$this->categoryClone('https://khoahoc.tv/ung-dung', $this->ungDungKhoaHoc);
-    	$this->categoryClone('https://khoahoc.tv/ban-doc-khoa-hoc', $this->khoaHocVaBanDoc);
-    	$this->categoryClone('https://khoahoc.tv/cong-trinh', $this->congTrinhKhoaHoc);
-    	$this->categoryClone('https://khoahoc.tv/cau-chuyen', $this->cauChuyenKhoaHoc);
-    	$this->categoryClone('https://khoahoc.tv/su-kien-khoa-hoc', $this->suKienKhoaHoc);
-    	$this->categoryClone('https://khoahoc.tv/thu-vien-anh', $this->thuVienAnh);
-         $this->categoryClone('https://khoahoc.tv/hai-huoc', $this->gocHaiHuoc);
-    	$this->categoryClone('https://khoahoc.tv/video', $this->video);
+    	$turn = Turn::findOrFail(1);
+    	$link = 'https://khoahoc.tv/bi-an-vu-an-duoc-pha-giai-boi-chinh-hon-ma-cua-nan-nhan-da-khuat-' . $turn->turn;
+    	$this->getData($link);
+    	$turn->increment('turn');
+
+  //   	$image = 'https://i.khoahoc.tv/photos/image/2020/06/25/uong-nuoc.jpg';
+  //   	$nameFile = 'chinh.jpg';
+  //   	$data = getimagesize($image);
+  //       $width = $data[0];
+  //       $height = $data[1];
+		// $widthThumbnailResize = 200;
+		// $heightThumbnailResize = ($height * $widthThumbnailResize) / $width;
+		// $thumbnail_resize = Image::make($image);
+	 //    $img = $thumbnail_resize->resize($widthThumbnailResize, $heightThumbnailResize)->encode('jpg');
+	 //    $fullpath = 'photos/og_images/chinh1997.jpg';
+		// \Storage::disk('s3')->put($fullpath, (string)$img, 'public');
+
+
+
+	    // $thumbnail_resize->save(public_path('upload/' . $nameFile));
+    	// $link = 'https://khoahoc.tv/kinh-ngac-truoc-robot-mini-co-the-thuc-hien-nhiem-vu-phuc-tap-1'
+    	// $this->categoryClone('https://khoahoc.tv/khoa-hoc-quan-su', $this->khoaHocQuanSu);
+    	// $this->categoryClone('https://khoahoc.tv/lich-su', $this->lichSu);
+    	// $this->categoryClone('https://khoahoc.tv/trac-nghiem-khoa-hoc', $this->tracNghiemKhoaHoc);
+    	// $this->categoryClone('https://khoahoc.tv/nguoi-ngoai-hanh-tinh', $this->nguoiNgoaiHanhTinh);
+    	// $this->categoryClone('https://khoahoc.tv/di-san-the-gioi', $this->kyQuanTheGioi);
+    	// $this->categoryClone('https://khoahoc.tv/chinh-phuc-sao-hoa', $this->chinhPhucNgoiSao);
+    	// $this->categoryClone('https://khoahoc.tv/ngay-tan-the', $this->ngayTanThe);
+    	// $this->categoryClone('https://khoahoc.tv/danh-nhan-the-gioi', $this->danhNhanTheGioi);
+    	// $this->categoryClone('https://khoahoc.tv/the-gioi-dong-vat', $this->theGioiDongVat);
+    	// $this->categoryClone('https://khoahoc.tv/dai-duong-hoc', $this->daiDuongHoc);
+    	// $this->categoryClone('https://khoahoc.tv/khao-co-hoc', $this->khaoCoHoc);
+    	// $this->categoryClone('https://khoahoc.tv/sinh-vat-hoc', $this->sinhVatHoc);
+    	// $this->categoryClone('https://khoahoc.tv/ai-tri-tue-nhan-tao', $this->Ai);
+    	// $this->categoryClone('https://khoahoc.tv/phat-minh', $this->phatMinh);
+    	// $this->categoryClone('https://khoahoc.tv/may-tinh', $this->khoaHocMayTinh);
+    	// $this->categoryClone('https://khoahoc.tv/phan-mem', $this->phanMem);
+    	// $this->categoryClone('https://khoahoc.tv/cong-nghe-moi', $this->congNgheMoi);
+    	// $this->categoryClone('https://khoahoc.tv/yhoc', $this->yHoc);
+    	// $this->categoryClone('https://khoahoc.tv/1001-bi-an', $this->biAn);
+    	// $this->categoryClone('https://khoahoc.tv/vu-tru', $this->khoaHoc);
+    	// $this->categoryClone('https://khoahoc.tv/kham-pha-khoa-hoc', $this->khamPha);
+    	// $this->categoryClone('https://khoahoc.tv/doi-song', $this->doiSong);
+    	// for ($i = 1; $i <= 387; $i++) {
+    	// 	$this->categoryClone('https://khoahoc.tv/cong-nghe?p=' . $i, $this->congNghe);
+    	// }
+    	// $this->categoryClone('https://khoahoc.tv/benh-va-cach-chua', $this->benh);
+    	// $this->categoryClone('https://khoahoc.tv/moi-truong', $this->moiTruong);
+    	// $this->categoryClone('https://khoahoc.tv/benh-ung-thu', $this->benhUngThu);
+    	// $this->categoryClone('https://khoahoc.tv/ung-dung', $this->ungDungKhoaHoc);
+    	// $this->categoryClone('https://khoahoc.tv/ban-doc-khoa-hoc', $this->khoaHocVaBanDoc);
+    	// $this->categoryClone('https://khoahoc.tv/cong-trinh', $this->congTrinhKhoaHoc);
+    	// $this->categoryClone('https://khoahoc.tv/cau-chuyen', $this->cauChuyenKhoaHoc);
+    	// $this->categoryClone('https://khoahoc.tv/su-kien-khoa-hoc', $this->suKienKhoaHoc);
+    	// $this->categoryClone('https://khoahoc.tv/thu-vien-anh', $this->thuVienAnh);
+     //    $this->categoryClone('https://khoahoc.tv/hai-huoc', $this->gocHaiHuoc);
+    	// $this->categoryClone('https://khoahoc.tv/video', $this->video);
     }
 
     public function categoryClone($link, $categoryId)
@@ -100,129 +125,260 @@ class CloneController extends Controller
     	}
     }
 
-    public function getData($link, $thumbnail, $categoryId)
+    public function getData($link)
     {
     	try {
-    		$html = file_get_html($link);
     		$check = $this->checkLink(md5($link));
-    		$listRand = $listImgAndContent = $listImgSoure = $listImage = array();
 
     		if ($check == 0) {
-    			if (!empty($html->find('.author-info'))) {
-    				$author = html_entity_decode($html->find('.author-info .author', 0)->plaintext);
-    				$date = $html->find('.author-info .date', 0)->plaintext;
-    				$date = trim(explode(':', $date)[1]);
-    				$date = str_replace('/', '-', $date);
-    				$date = date('Y-m-d', strtotime($date));
-    			} else {
-    				$date = date('Y-m-d');
-    				$author = 'diembao24h.net';
-    			}
-    			$folder = date('Y-m', strtotime($date));
-    			//$this->createFolder($folder);
+	    		$listRand = $listImgAndContent = $listImgSoure = $listImage = array();
+	    		$html = file_get_html($link);
+	    		$subCategory = html_entity_decode($html->find('span.breadcrumb', 2)->plaintext);
+	    		$slug = str_slug($subCategory);
+	    		$subCategory = SubCategory::where('slug', str_slug($subCategory))->first();
 
-    			if (!empty($html->find('#main .content'))) {
-    				$title = trim(html_entity_decode($html->find('.content h1', 0)->plaintext));
-    				$summury = $html->find("meta[name='description']", 0)->content;
-    				$content = $html->find('.content-detail', 0)->innertext();
-    				$keyword = $html->find("meta[name='keywords']", 0)->content;
-    				$nameImage = $slug = str_slug($title);
+	    		if (isset($subCategory)) {
+	    			$categoryId = $subCategory->category_id;
+	    			$subCategoryId = $subCategory->id;
 
-    				if (!empty($html->find("meta[property='og:image']"))) {
-    					$og_image = $html->find("meta[property='og:image']", 0)->content;
-    				} else {
-    					$og_image = $thumbnail;
-    				}
+	    			if (!empty($html->find('.author-info'))) {
+	    				$author = html_entity_decode($html->find('.author-info .author', 0)->plaintext);
 
-    				if (!empty($html->find('.content-detail p[style="text-align: center;"]'))) {
-    					foreach ($html->find('.content-detail p[style="text-align: center;"]') as $thumb) {
-	    					if (!empty($thumb->find('img'))) {
-	    						try {
-	    							$alt = $thumb->find('img', 0)->alt;
-	    							$img = $thumb->find('img', 0)->src;
-	    							$rand = rand();
-				    				$path = $this->server . "photos/images/$folder/$nameImage-$rand.jpg";
-				    				$thumbItem = html_entity_decode($thumb->outertext);
+	    				if (!empty($html->find('.author-info .date'))) {
+	    					$date = $html->find('.author-info .date', 0)->plaintext;
+		    				$date = trim(explode(':', $date)[1]);
+		    				$date = str_replace('/', '-', $date);
+		    				$date = date('Y-m-d', strtotime($date));
+	    				} else {
+	    					$date = date('Y-m-d');
+	    				}
+	    				
+	    			} else {
+	    				$author = 'diembao24h.net';
+	    			}
+	    			$folder = date('Y-m', strtotime($date));
 
-				    				if ($alt != '') {
-										$noteImage = '<p class="note-image">' . $alt . '</p>';
-									} else {
+	    			if (!empty($html->find('#main .content'))) {
+	    				$title = trim(html_entity_decode($html->find('.content h1', 0)->plaintext));
+	    				$summury = $html->find("meta[name='description']", 0)->content;
+	    				$content = $html->find('.content-detail', 0)->innertext();
+	    				$keyword = $html->find("meta[name='keywords']", 0)->content;
+	    				$nameImage = $slug = str_slug($title);
+
+	    				if (!empty($html->find("meta[property='og:image']"))) {
+	    					$og_image = $html->find("meta[property='og:image']", 0)->content;
+	    				} else {
+	    					$og_image = 'https://i.khoahoc.tv/photos/image/blank.png';
+	    				}
+
+	    				if (!empty($html->find('.content-detail p[style="text-align: center;"]'))) {
+	    					foreach ($html->find('.content-detail p[style="text-align: center;"]') as $thumb) {
+		    					if (!empty($thumb->find('img'))) {
+		    						try {
+		    							$alt = $thumb->find('img', 0)->alt;
+		    							$img = $thumb->find('img', 0)->src;
+		    							$rand = rand();
+					    				$path = $this->server . "photos/images/$folder/$nameImage-$rand.jpg";
+					    				$thumbItem = html_entity_decode($thumb->outertext);
+
+					    				if ($alt != '') {
+											$noteImage = '<p class="note-image">' . $alt . '</p>';
+										} else {
+											$noteImage = '';
+										}
+
+										if ($img != '') {
+											$imgTag = "<p class='image-detail'><img src=$path alt='$alt' title='$title' alt='$noteImage'></p>";
+											$imgSoure = "<p class='image-detail'><img src=$img alt='$nameImage' title='$title' alt='$noteImage'></p>";
+										} else {
+											$img = '';
+											$imgTag = '';
+											$imgSoure = '';
+										}
+		    						} catch (\Exception $e) {
+		    							$imgTag = '';
 										$noteImage = '';
-									}
-
-									if ($img != '') {
-										$imgTag = "<p class='image-detail'><img src=$path alt='$alt' title='$title' alt='$noteImage'></p>";
-										$imgSoure = "<p class='image-detail'><img src=$img alt='$nameImage' title='$title' alt='$noteImage'></p>";
-									} else {
-										$img = '';
-										$imgTag = '';
 										$imgSoure = '';
-									}
-	    						} catch (\Exception $e) {
-	    							$imgTag = '';
-									$noteImage = '';
-									$imgSoure = '';
-	    						}
-	    						$listRand[$rand] = $rand;
-								$listImgAndContent[$rand] = $imgTag . $noteImage;
-								$listImgSoure[$rand] = $imgSoure . $noteImage;
-								$listImage[$rand] = $img;
-								$content = str_replace($thumbItem, '<p>' . $rand . '</p>', $content);
-	    					}
-	    					
-	    					if (!empty($thumb->find('video'))) {
-	    						try {
-	    							$rand = rand();
-				    				$thumbItem = html_entity_decode($thumb->innertext);
-	    						} catch (\Exception $e) {
-	    							$imgTag = '';
-									$imgSoure = '';
-	    						}
-	    						$listRand[$rand] = $rand;
-								$listImgAndContent[$rand] = '<p class="video-detail">' . $thumbItem . '</p>';
-								$listImgSoure[$rand] = '<p class="video-detail">' . $thumbItem . '</p>';
-								$content = str_replace($thumbItem, '<p class="video-detail">' . $rand . '</p>', $content);
-	    					}
-	    					if (!empty($thumb->find('iframe'))) {
-	    						try {
-	    							$rand = rand();
-				    				$thumbItem = html_entity_decode($thumb->innertext);
-	    						} catch (\Exception $e) {
-	    							$imgTag = '';
-									$imgSoure = '';
-	    						}
-	    						$listRand[$rand] = $rand;
-								$listImgAndContent[$rand] = '<p class="video-detail">' . $thumbItem . '</p>';
-								$listImgSoure[$rand] = '<p class="video-detail">' . $thumbItem . '</p>';
-								$content = str_replace($thumbItem, '<p class="video-detail">' . $rand . '</p>', $content);
-	    					}	    	
-						}
-    				}
-					$content = str_replace('<br>', '', $content);
-					$content = str_replace($summury, '', $content);
-					$htmlTagExeption = array('article', 'figure', 'html', 'head', 'meta', 'body', 'strong', 'em', 'a', 'span', 'i', 'div', 'font', 'b', 'table', 'tr', 'td', 'tbody', 'ul', 'script', 'ins', 'u', 'br', 'sub', 'iframe');
-					$contentInsert = $this->getContentInsert($content, $htmlTagExeption, $listRand, $listImgAndContent, $listImage);
-					session()->flush();
-					$contentSoure = $this->getContentInsert($content, $htmlTagExeption, $listRand, $listImgSoure, $listImage);
-					session()->flush();
-					$result = $this->insertPost($title, $slug, $summury, $contentInsert, $nameImage . '.jpg', $keyword, $link, $date, $categoryId, $thumbnail, $author, $contentSoure);
+		    						}
+		    						$listRand[$rand] = $rand;
+									$listImgAndContent[$rand] = $imgTag . $noteImage;
+									$listImgSoure[$rand] = $imgSoure . $noteImage;
+									$listImage[$rand] = $img;
+									$content = str_replace($thumbItem, '<p>' . $rand . '</p>', $content);
+		    					}
+		    					
+		    					if (!empty($thumb->find('video'))) {
+		    						try {
+		    							$rand = rand();
+					    				$thumbItem = html_entity_decode($thumb->innertext);
+		    						} catch (\Exception $e) {
+		    							$imgTag = '';
+										$imgSoure = '';
+		    						}
+		    						$listRand[$rand] = $rand;
+									$listImgAndContent[$rand] = '<p class="video-detail">' . $thumbItem . '</p>';
+									$listImgSoure[$rand] = '<p class="video-detail">' . $thumbItem . '</p>';
+									$content = str_replace($thumbItem, '<p class="video-detail">' . $rand . '</p>', $content);
+		    					}
+		    					if (!empty($thumb->find('iframe'))) {
+		    						try {
+		    							$rand = rand();
+					    				$thumbItem = html_entity_decode($thumb->innertext);
+		    						} catch (\Exception $e) {
+		    							$imgTag = '';
+										$imgSoure = '';
+		    						}
+		    						$listRand[$rand] = $rand;
+									$listImgAndContent[$rand] = '<p class="video-detail">' . $thumbItem . '</p>';
+									$listImgSoure[$rand] = '<p class="video-detail">' . $thumbItem . '</p>';
+									$content = str_replace($thumbItem, '<p class="video-detail">' . $rand . '</p>', $content);
+		    					}	    	
+							}
+	    				}
+						$content = str_replace('<br>', '', $content);
+						$content = str_replace($summury, '', $content);
+						$htmlTagExeption = array('article', 'figure', 'html', 'head', 'meta', 'body', 'strong', 'em', 'a', 'span', 'i', 'div', 'font', 'b', 'table', 'tr', 'td', 'tbody', 'ul', 'script', 'ins', 'u', 'br', 'sub', 'iframe');
+						$contentInsert = $this->getContentInsert($content, $htmlTagExeption, $listRand, $listImgAndContent, $listImage);
+						session()->flush();
+						$contentSoure = $this->getContentInsert($content, $htmlTagExeption, $listRand, $listImgSoure, $listImage);
+						session()->flush();
+						$result = $this->insertPost($title, $slug, $summury, $contentInsert, $nameImage . '.jpg', $keyword, $link, $date, $categoryId, $author, $contentSoure, $subCategoryId);
 
-					if (!empty($result)) {
-						$alert = $this->uploadThumbnail($og_image, $listImage, $listRand, $nameImage, $thumbnail, $folder, $result);
+						if (!empty($result)) {
+							$alert = $this->uploadThumbnail($og_image, $listImage, $listRand, $nameImage, $folder, $result);
 
-						if (!empty($alert)) {
-							echo $alert . ' <b>khoahoc.tv</b><hr>';
+							if (!empty($alert)) {
+								echo $alert . ' <b>khoahoc.tv</b><hr>';
+							} else {
+								$this->deletePost($result->id);
+								echo 'Ảnh lỗi nên không thêm tin này:' . $link . '<hr>';
+							}
 						} else {
-							$this->deletePost($result->id);
-							echo 'Ảnh lỗi nên không thêm tin này:' . $link . '<hr>';
+							echo "Thêm thất bại: $link<hr>";
 						}
-					} else {
-						echo "Thêm thất bại: $link<hr>";
-					}
-    			}
+	    			}
+	    		}
     		} else {
     			echo "Tin này đã thêm: $link<hr>";
     		}
+    		
+    		
+
+    	// 	if ($check == 0) {
+    	// 		if (!empty($html->find('.author-info'))) {
+    	// 			$author = html_entity_decode($html->find('.author-info .author', 0)->plaintext);
+    	// 			$date = $html->find('.author-info .date', 0)->plaintext;
+    	// 			$date = trim(explode(':', $date)[1]);
+    	// 			$date = str_replace('/', '-', $date);
+    	// 			$date = date('Y-m-d', strtotime($date));
+    	// 		} else {
+    	// 			$date = date('Y-m-d');
+    	// 			$author = 'diembao24h.net';
+    	// 		}
+    	// 		$folder = date('Y-m', strtotime($date));
+
+    	// 		if (!empty($html->find('#main .content'))) {
+    	// 			$title = trim(html_entity_decode($html->find('.content h1', 0)->plaintext));
+    	// 			$summury = $html->find("meta[name='description']", 0)->content;
+    	// 			$content = $html->find('.content-detail', 0)->innertext();
+    	// 			$keyword = $html->find("meta[name='keywords']", 0)->content;
+    	// 			$nameImage = $slug = str_slug($title);
+
+    	// 			if (!empty($html->find("meta[property='og:image']"))) {
+    	// 				$og_image = $html->find("meta[property='og:image']", 0)->content;
+    	// 			} else {
+    	// 				$og_image = $thumbnail;
+    	// 			}
+
+    	// 			if (!empty($html->find('.content-detail p[style="text-align: center;"]'))) {
+    	// 				foreach ($html->find('.content-detail p[style="text-align: center;"]') as $thumb) {
+	    // 					if (!empty($thumb->find('img'))) {
+	    // 						try {
+	    // 							$alt = $thumb->find('img', 0)->alt;
+	    // 							$img = $thumb->find('img', 0)->src;
+	    // 							$rand = rand();
+				 //    				$path = $this->server . "photos/images/$folder/$nameImage-$rand.jpg";
+				 //    				$thumbItem = html_entity_decode($thumb->outertext);
+
+				 //    				if ($alt != '') {
+					// 					$noteImage = '<p class="note-image">' . $alt . '</p>';
+					// 				} else {
+					// 					$noteImage = '';
+					// 				}
+
+					// 				if ($img != '') {
+					// 					$imgTag = "<p class='image-detail'><img src=$path alt='$alt' title='$title' alt='$noteImage'></p>";
+					// 					$imgSoure = "<p class='image-detail'><img src=$img alt='$nameImage' title='$title' alt='$noteImage'></p>";
+					// 				} else {
+					// 					$img = '';
+					// 					$imgTag = '';
+					// 					$imgSoure = '';
+					// 				}
+	    // 						} catch (\Exception $e) {
+	    // 							$imgTag = '';
+					// 				$noteImage = '';
+					// 				$imgSoure = '';
+	    // 						}
+	    // 						$listRand[$rand] = $rand;
+					// 			$listImgAndContent[$rand] = $imgTag . $noteImage;
+					// 			$listImgSoure[$rand] = $imgSoure . $noteImage;
+					// 			$listImage[$rand] = $img;
+					// 			$content = str_replace($thumbItem, '<p>' . $rand . '</p>', $content);
+	    // 					}
+	    					
+	    // 					if (!empty($thumb->find('video'))) {
+	    // 						try {
+	    // 							$rand = rand();
+				 //    				$thumbItem = html_entity_decode($thumb->innertext);
+	    // 						} catch (\Exception $e) {
+	    // 							$imgTag = '';
+					// 				$imgSoure = '';
+	    // 						}
+	    // 						$listRand[$rand] = $rand;
+					// 			$listImgAndContent[$rand] = '<p class="video-detail">' . $thumbItem . '</p>';
+					// 			$listImgSoure[$rand] = '<p class="video-detail">' . $thumbItem . '</p>';
+					// 			$content = str_replace($thumbItem, '<p class="video-detail">' . $rand . '</p>', $content);
+	    // 					}
+	    // 					if (!empty($thumb->find('iframe'))) {
+	    // 						try {
+	    // 							$rand = rand();
+				 //    				$thumbItem = html_entity_decode($thumb->innertext);
+	    // 						} catch (\Exception $e) {
+	    // 							$imgTag = '';
+					// 				$imgSoure = '';
+	    // 						}
+	    // 						$listRand[$rand] = $rand;
+					// 			$listImgAndContent[$rand] = '<p class="video-detail">' . $thumbItem . '</p>';
+					// 			$listImgSoure[$rand] = '<p class="video-detail">' . $thumbItem . '</p>';
+					// 			$content = str_replace($thumbItem, '<p class="video-detail">' . $rand . '</p>', $content);
+	    // 					}	    	
+					// 	}
+    	// 			}
+					// $content = str_replace('<br>', '', $content);
+					// $content = str_replace($summury, '', $content);
+					// $htmlTagExeption = array('article', 'figure', 'html', 'head', 'meta', 'body', 'strong', 'em', 'a', 'span', 'i', 'div', 'font', 'b', 'table', 'tr', 'td', 'tbody', 'ul', 'script', 'ins', 'u', 'br', 'sub', 'iframe');
+					// $contentInsert = $this->getContentInsert($content, $htmlTagExeption, $listRand, $listImgAndContent, $listImage);
+					// session()->flush();
+					// $contentSoure = $this->getContentInsert($content, $htmlTagExeption, $listRand, $listImgSoure, $listImage);
+					// session()->flush();
+					// $result = $this->insertPost($title, $slug, $summury, $contentInsert, $nameImage . '.jpg', $keyword, $link, $date, $categoryId, $thumbnail, $author, $contentSoure);
+
+					// if (!empty($result)) {
+					// 	$alert = $this->uploadThumbnail($og_image, $listImage, $listRand, $nameImage, $thumbnail, $folder, $result);
+
+					// 	if (!empty($alert)) {
+					// 		echo $alert . ' <b>khoahoc.tv</b><hr>';
+					// 	} else {
+					// 		$this->deletePost($result->id);
+					// 		echo 'Ảnh lỗi nên không thêm tin này:' . $link . '<hr>';
+					// 	}
+					// } else {
+					// 	echo "Thêm thất bại: $link<hr>";
+					// }
+    	// 		}
+    	// 	} else {
+    	// 		echo "Tin này đã thêm: $link<hr>";
+    	// 	}
     	} catch (\Exception $e) {
     		echo 'Lỗi dòng link: ' . $link . '<br>';
     		echo 'Dòng: ' . $e->getLine() . '<br>';
@@ -231,7 +387,7 @@ class CloneController extends Controller
     	}
     }
 
-    public function insertPost($title, $slug, $summury, $contentInsert, $nameImage, $keyword, $link, $date, $categoryId, $thumbnail, $author, $contentSoure)
+    public function insertPost($title, $slug, $summury, $contentInsert, $nameImage, $keyword, $link, $date, $categoryId, $author, $contentSoure, $subCategoryId)
     {
     	try {
     		return News::create(
@@ -243,6 +399,7 @@ class CloneController extends Controller
 					'content' => $contentInsert,
 					'content_origin' => $contentSoure,
 					'category_id' => $categoryId,
+					'sub_category_id' => $subCategoryId,
 					'keyword' => $keyword,
 					'link' => $link,
 					'md5_link' => md5($link),
@@ -309,7 +466,7 @@ class CloneController extends Controller
 		}
     }
 
-    public function uploadThumbnail($og_image, $listImage, $listRand, $nameImage, $thumbnail, $folder, $result)
+    public function uploadThumbnail($og_image, $listImage, $listRand, $nameImage, $folder, $result)
     {
     	try {
     		$arrContextOptions=array(
@@ -329,11 +486,21 @@ class CloneController extends Controller
 					}
 				}
 			}
-			$fillPathThumb = 'photos/thumbnails/' . $nameImage . '.jpg';
-			\Storage::disk('s3')->put($fillPathThumb, file_get_contents($thumbnail, false, stream_context_create($arrContextOptions)), 'public');
+			// $fillPathThumb = 'photos/thumbnails/' . $nameImage . '.jpg';
+			// \Storage::disk('s3')->put($fillPathThumb, file_get_contents($thumbnail, false, stream_context_create($arrContextOptions)), 'public');
 
 			// $put_thumbnail = file_get_contents($thumbnail, false, stream_context_create($arrContextOptions));
 			// file_put_contents(public_path("upload/thumbnails/" . $nameImage . '.jpg'), $put_thumbnail);
+
+	    	$data = getimagesize($og_image);
+	        $width = $data[0];
+	        $height = $data[1];
+			$widthThumbnailResize = 200;
+			$heightThumbnailResize = ($height * $widthThumbnailResize) / $width;
+			$thumbnail_resize = Image::make($og_image);
+		    $img = $thumbnail_resize->resize($widthThumbnailResize, $heightThumbnailResize)->encode('jpg');
+		    $fullpath = 'photos/thumbnails/' . $nameImage . '.jpg';
+			\Storage::disk('s3')->put($fullpath, (string)$img, 'public');
 
 			$filePathOgImage = 'photos/og_images/' . $nameImage . '.jpg';
 			\Storage::disk('s3')->put($filePathOgImage, file_get_contents($og_image, false, stream_context_create($arrContextOptions)), 'public');
@@ -352,12 +519,12 @@ class CloneController extends Controller
 		$post = News::findOrFail($newsId);
 		$image = $post->image;
 
-		if (Storage::disk('s3')->exists($this->server . 'photos/thumbnails/' . $image)) {
-	        Storage::disk('s3')->delete($this->server . 'photos/thumbnails/' . $image);
+		if (\Storage::disk('s3')->exists($this->server . 'photos/thumbnails/' . $image)) {
+	        \Storage::disk('s3')->delete($this->server . 'photos/thumbnails/' . $image);
 	    }
 
-	    if (Storage::disk('s3')->exists($this->server . 'photos/og_images/' . $image)) {
-	        Storage::disk('s3')->delete($this->server . 'photos/og_images/' . $image);
+	    if (\Storage::disk('s3')->exists($this->server . 'photos/og_images/' . $image)) {
+	        \Storage::disk('s3')->delete($this->server . 'photos/og_images/' . $image);
 	    }
 		// if (file_exists(public_path('upload/thumbnails/' . $image))) {
 		// 	unlink(public_path('upload/thumbnails/' . $image));
@@ -378,10 +545,12 @@ class CloneController extends Controller
 				// if (file_exists(public_path($img))) {
 				// 	unlink(public_path($img));
 				// }
-				if (Storage::disk('s3')->exists($img)) {
-			        Storage::disk('s3')->delete($img);
+				if (\Storage::disk('s3')->exists($img)) {
+			        \Storage::disk('s3')->delete($img);
 			    }
 			}
 		}
+
+		return $post->delete();
 	}
 }
