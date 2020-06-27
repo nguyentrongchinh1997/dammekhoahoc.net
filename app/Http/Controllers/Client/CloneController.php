@@ -14,45 +14,45 @@ class CloneController extends Controller
 {
 	public function __construct()
 	{
-		$this->congNghe = 1;
-		$this->doiSong = 2;
-		$this->khamPha = 3;
-		$this->khoaHoc = 4;
-		$this->biAn = 5;
-		$this->yHoc = 6;
-		$this->congNgheMoi = 7;
-		$this->phanMem = 8;
-		$this->khoaHocMayTinh = 9;
-		$this->phatMinh = 10;
-		$this->Ai = 11;
-		$this->sinhVatHoc = 12;
-		$this->khaoCoHoc = 13;
-		$this->daiDuongHoc = 14;
-		$this->theGioiDongVat = 15;
-		$this->danhNhanTheGioi = 16;
-		$this->ngayTanThe = 17;
-		$this->chinhPhucNgoiSao = 18;
-		$this->kyQuanTheGioi = 19;
-		$this->nguoiNgoaiHanhTinh = 20;
-		$this->tracNghiemKhoaHoc = 21;
-		$this->lichSu = 22;
-		$this->khoaHocQuanSu = 23;
-		$this->benh = 24;
-		$this->moiTruong = 25;
-		$this->benhUngThu = 26;
-		$this->ungDungKhoaHoc = 27;
-		$this->khoaHocVaBanDoc = 28;
-		$this->congTrinhKhoaHoc = 29;
-		$this->cauChuyenKhoaHoc = 30;
-		$this->suKienKhoaHoc = 31;
-		$this->thuVienAnh = 32;
-		$this->gocHaiHuoc = 33;
-		$this->video = 34;
+		// $this->congNghe = 1;
+		// $this->doiSong = 2;
+		// $this->khamPha = 3;
+		// $this->khoaHoc = 4;
+		// $this->biAn = 5;
+		// $this->yHoc = 6;
+		// $this->congNgheMoi = 7;
+		// $this->phanMem = 8;
+		// $this->khoaHocMayTinh = 9;
+		// $this->phatMinh = 10;
+		// $this->Ai = 11;
+		// $this->sinhVatHoc = 12;
+		// $this->khaoCoHoc = 13;
+		// $this->daiDuongHoc = 14;
+		// $this->theGioiDongVat = 15;
+		// $this->danhNhanTheGioi = 16;
+		// $this->ngayTanThe = 17;
+		// $this->chinhPhucNgoiSao = 18;
+		// $this->kyQuanTheGioi = 19;
+		// $this->nguoiNgoaiHanhTinh = 20;
+		// $this->tracNghiemKhoaHoc = 21;
+		// $this->lichSu = 22;
+		// $this->khoaHocQuanSu = 23;
+		// $this->benh = 24;
+		// $this->moiTruong = 25;
+		// $this->benhUngThu = 26;
+		// $this->ungDungKhoaHoc = 27;
+		// $this->khoaHocVaBanDoc = 28;
+		// $this->congTrinhKhoaHoc = 29;
+		// $this->cauChuyenKhoaHoc = 30;
+		// $this->suKienKhoaHoc = 31;
+		// $this->thuVienAnh = 32;
+		// $this->gocHaiHuoc = 33;
+		// $this->video = 34;
 		$this->server = 'http://static.dammekhoahoc.net/';
 	}
 
     public function clone()
-    {
+    {    	
     	$turn = Turn::findOrFail(1);
     	$link = 'https://khoahoc.tv/bi-an-vu-an-duoc-pha-giai-boi-chinh-hon-ma-cua-nan-nhan-da-khuat-' . $turn->turn;
     	$this->getData($link);
@@ -162,19 +162,17 @@ class CloneController extends Controller
 	    				$title = trim(html_entity_decode($html->find('.content h1', 0)->plaintext));
 	    				$summury = $html->find("meta[name='description']", 0)->content;
 	    				$content = $html->find('.content-detail', 0)->innertext();
-	    				
 	    				if (!empty($html->find("meta[name='keywords']"))) {
 	    				    $keyword = $html->find("meta[name='keywords']", 0)->content;
 	    				} else {
 	    				    $keyword = NULL;
 	    				}
-	    				
 	    				$nameImage = $slug = str_slug($title);
 
 	    				if (!empty($html->find("meta[property='og:image']"))) {
 	    					$og_image = $html->find("meta[property='og:image']", 0)->content;
 	    				} else {
-	    					$og_image = 'https://khoahoc.tv/themes/default/images/noimage.png';
+	    					$og_image = NULL;
 	    				}
 
 	    				if (!empty($html->find('.content-detail p[style="text-align: center;"]'))) {
@@ -248,7 +246,7 @@ class CloneController extends Controller
 						session()->flush();
 						$contentSoure = $this->getContentInsert($content, $htmlTagExeption, $listRand, $listImgSoure, $listImage);
 						session()->flush();
-						$result = $this->insertPost($title, $slug, $summury, $contentInsert, $nameImage . '.jpg', $keyword, $link, $date, $categoryId, $author, $contentSoure, $subCategoryId);
+						$result = $this->insertPost($title, $slug, $summury, $contentInsert, $nameImage . '.jpg', $keyword, $link, $date, $categoryId, $author, $contentSoure, $subCategoryId, $og_image);
 
 						if (!empty($result)) {
 							$alert = $this->uploadThumbnail($og_image, $listImage, $listRand, $nameImage, $folder, $result);
@@ -393,14 +391,20 @@ class CloneController extends Controller
     	}
     }
 
-    public function insertPost($title, $slug, $summury, $contentInsert, $nameImage, $keyword, $link, $date, $categoryId, $author, $contentSoure, $subCategoryId)
+    public function insertPost($title, $slug, $summury, $contentInsert, $nameImage, $keyword, $link, $date, $categoryId, $author, $contentSoure, $subCategoryId, $og_image)
     {
     	try {
+    		if ($og_image == NULL) {
+    			$image = 'dammekhoahoc.net.jpg';
+    		} else {
+    			$image = $nameImage;
+    		}
+
     		return News::create(
 	    		[
 	    			'title' => $title,
 					'slug' => $slug,
-					'image' => $nameImage,
+					'image' => $image,
 					'summury' => $summury,
 					'content' => $contentInsert,
 					'content_origin' => $contentSoure,
@@ -475,6 +479,7 @@ class CloneController extends Controller
     public function uploadThumbnail($og_image, $listImage, $listRand, $nameImage, $folder, $result)
     {
     	try {
+    		$og_image_new = array();
     		$arrContextOptions=array(
 			    "ssl"=>array(
 			        "verify_peer"=>false,
@@ -486,30 +491,49 @@ class CloneController extends Controller
 				foreach ($listImage as $key => $img) {
 					if ($img != '') {
 						$fullpath = 'photos/images/' . $folder . '/' . $nameImage . '-' . $listRand[$key] . '.jpg';
+						$og_image_new[] = $nameImage . '-' . $listRand[$key];
 						\Storage::disk('s3')->put($fullpath, file_get_contents($img, false, stream_context_create($arrContextOptions)), 'public');
 						// $put_img = file_get_contents($img, false, stream_context_create($arrContextOptions));
 						// file_put_contents(public_path("upload/images/$folder/" . $nameImage . '-' . $listRand[$key] . '.jpg'), $put_img);
 					}
 				}
 			}
+
+			if ($og_image == NULL) {
+				if (count($og_image_new) > 0) {
+					\Storage::disk('s3')->copy('photos/images/' . $folder . '/' . $og_image_new[0] . '.jpg', 'photos/og_images/' . $nameImage . '.jpg');
+					$data = getimagesize($this->server . 'photos/images/' . $folder . '/' . $og_image_new[0] . '.jpg');
+					$width = $data[0];
+			        $height = $data[1];
+					$widthThumbnailResize = 200;
+					$heightThumbnailResize = ($height * $widthThumbnailResize) / $width;
+					$thumbnail_resize = Image::make($og_image);
+				    $img = $thumbnail_resize->resize($widthThumbnailResize, $heightThumbnailResize)->encode('jpg');
+				    $fullpath = 'photos/thumbnails/' . $nameImage . '.jpg';
+					\Storage::disk('s3')->put($fullpath, (string)$img, 'public');
+				}
+				dd('Không có og_image');
+				
+			} else if ($og_image != NULL) {
+				$data = getimagesize($og_image);
+		        $width = $data[0];
+		        $height = $data[1];
+				$widthThumbnailResize = 200;
+				$heightThumbnailResize = ($height * $widthThumbnailResize) / $width;
+				$thumbnail_resize = Image::make($og_image);
+			    $img = $thumbnail_resize->resize($widthThumbnailResize, $heightThumbnailResize)->encode('jpg');
+			    $fullpath = 'photos/thumbnails/' . $nameImage . '.jpg';
+				\Storage::disk('s3')->put($fullpath, (string)$img, 'public');
+
+				$filePathOgImage = 'photos/og_images/' . $nameImage . '.jpg';
+				\Storage::disk('s3')->put($filePathOgImage, file_get_contents($og_image, false, stream_context_create($arrContextOptions)), 'public');
+				dd('có og_image');
+			}
 			// $fillPathThumb = 'photos/thumbnails/' . $nameImage . '.jpg';
 			// \Storage::disk('s3')->put($fillPathThumb, file_get_contents($thumbnail, false, stream_context_create($arrContextOptions)), 'public');
 
 			// $put_thumbnail = file_get_contents($thumbnail, false, stream_context_create($arrContextOptions));
 			// file_put_contents(public_path("upload/thumbnails/" . $nameImage . '.jpg'), $put_thumbnail);
-
-	    	$data = getimagesize($og_image);
-	        $width = $data[0];
-	        $height = $data[1];
-			$widthThumbnailResize = 200;
-			$heightThumbnailResize = ($height * $widthThumbnailResize) / $width;
-			$thumbnail_resize = Image::make($og_image);
-		    $img = $thumbnail_resize->resize($widthThumbnailResize, $heightThumbnailResize)->encode('jpg');
-		    $fullpath = 'photos/thumbnails/' . $nameImage . '.jpg';
-			\Storage::disk('s3')->put($fullpath, (string)$img, 'public');
-
-			$filePathOgImage = 'photos/og_images/' . $nameImage . '.jpg';
-			\Storage::disk('s3')->put($filePathOgImage, file_get_contents($og_image, false, stream_context_create($arrContextOptions)), 'public');
 
 			// $put_og_image = file_get_contents($og_image, false, stream_context_create($arrContextOptions));
 			// file_put_contents(public_path("upload/og_images/" . $nameImage . '.jpg'), $put_og_image);
