@@ -17,7 +17,7 @@ class SiteService
 
 	public function home()
 	{
-		$news = $this->newsModel->latest('date')->limit(10)->get();
+		$news = $this->newsModel->latest('id')->limit(10)->get();
 		$newsLatest = $this->newsModel->latest('date')
 									 ->where('date', '<', $news[9]->date)
 									 ->limit(8)
@@ -63,11 +63,13 @@ class SiteService
 	{
 		//try {
 			$news = $this->newsModel->findOrFail($id);
-			if (count($news->category->news) > 6) {
+			if (count($news->category->news) > 9) {
 			    $categorySameNews = $this->newsModel->where('id', '!=', $news->id)
 												->where('category_id', $news->category_id)
-												->get()
-												->random(6);
+												->latest('id')
+												->limit(9)
+												->get();
+												
 			} else {
 			    $categorySameNews = $this->newsModel->where('id', '!=', $news->id)
 												->where('category_id', $news->category_id)
@@ -75,7 +77,7 @@ class SiteService
 			}
 			
 			$newsLatest = $this->newsModel->where('id', '!=', $news->id)
-									->latest('date')
+									->latest('id')
 									 ->limit(8)
 									 ->get();
 			$bestView = $this->newsModel->where('id', '!=', $news->id)->latest('view')

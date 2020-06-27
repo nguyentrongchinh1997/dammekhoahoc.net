@@ -162,13 +162,19 @@ class CloneController extends Controller
 	    				$title = trim(html_entity_decode($html->find('.content h1', 0)->plaintext));
 	    				$summury = $html->find("meta[name='description']", 0)->content;
 	    				$content = $html->find('.content-detail', 0)->innertext();
-	    				$keyword = $html->find("meta[name='keywords']", 0)->content;
+	    				
+	    				if (!empty($html->find("meta[name='keywords']"))) {
+	    				    $keyword = $html->find("meta[name='keywords']", 0)->content;
+	    				} else {
+	    				    $keyword = NULL;
+	    				}
+	    				
 	    				$nameImage = $slug = str_slug($title);
 
 	    				if (!empty($html->find("meta[property='og:image']"))) {
 	    					$og_image = $html->find("meta[property='og:image']", 0)->content;
 	    				} else {
-	    					$og_image = 'https://i.khoahoc.tv/photos/image/blank.png';
+	    					$og_image = 'https://khoahoc.tv/themes/default/images/noimage.png';
 	    				}
 
 	    				if (!empty($html->find('.content-detail p[style="text-align: center;"]'))) {
